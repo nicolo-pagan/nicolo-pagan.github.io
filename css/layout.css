@@ -31,14 +31,22 @@ html, html a, body {
 
 body {
   position: relative;
-  font-family: Hind, sans-serif;
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+}
+
+.normal{
+  font-weight: 100;
+}
+
+.light{
+  font-weight: 100;
 }
 
 p {
   font-size: 15px;
-  font-weight: 400;
-  font-family: Hind, sans-serif;
-  color: #a6a7aa;
+  font-family: Roboto, sans-serif;
+  color: #282828; /* 737374 */
   line-height: 1.4;
   margin-bottom: 15px;
 }
@@ -47,53 +55,53 @@ em,
 li,
 li a {
   font-size: 15px;
-  font-weight: 500;
-  font-family: Hind, sans-serif;
-  color: #515769;
+  font-weight: 100;
+  font-family: Roboto, sans-serif;
+  color: #282828;
 }
 
 a {
-  font-family: Hind, sans-serif;
-  color: #81848f;
+  font-family: Roboto, sans-serif;
+  color: #284C76;
   outline: 0;
 }
 
 a:focus, a:hover, a:active {
   outline: 0;
-  color: #999caa;
+  color: #4E8EF1;
   text-decoration: none;
 }
 
 .link {
   position: relative;
-  font-size: 13px;
-  font-weight: 600;
-  font-family: Hind, sans-serif;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: Roboto, sans-serif;
+  /* text-transform: uppercase; */
 }
 
 
 span {
   font-size: 15px;
   font-weight: 400;
-  font-family: Hind, sans-serif;
+  font-family: Roboto, sans-serif;
   color: #bfc1c7;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  font-family: Hind, sans-serif;
-  color: #515769;
+  font-weight: 500;
+  font-family: Roboto, sans-serif;
+  color: #284C76;
   line-height: 1.4;
   margin: 0 0 15px;
 }
 
 h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
-  color: #515769;
+  color: #4E8EF1; /*515769*/
 }
 
 h1 > a:hover, h2 > a:hover, h3 > a:hover, h4 > a:hover, h5 > a:hover, h6 > a:hover {
-  color: #999caa;
+  color: #4E8EF1;
   text-decoration: none;
 }
 
@@ -119,19 +127,19 @@ h4 {
 
 ::selection {
   color: #fff;
-  background: #17bed2;
+  background: #284C76;
   text-shadow: none;
 }
 
 ::-webkit-selection {
   color: #fff;
-  background: #17bed2;
+  background: #284C76;
   text-shadow: none;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #17bed2;
+  background: #284C76;
   text-shadow: none;
 }
 
@@ -158,7 +166,7 @@ h4 {
 }
 
 /*------------------------------------------------------------------
-  	[Button]
+      [Button]
 ------------------------------------------------------------------*/
 .btn-theme {
   position: relative;
@@ -220,7 +228,7 @@ fieldset[disabled] .btn-theme {
 
 .btn-white-bg:hover, .btn-white-bg:focus, .btn-white-bg.focus {
   color: #fff;
-  background: #17bed2;
+  background: #284C76;
   border-color: transparent;
 }
 
@@ -238,15 +246,15 @@ fieldset[disabled] .btn-theme {
 }
 
 .btn-default-bg {
-  color: #515769;
-  background: #f3f4f5;
+  color: #fff;
+  background: #284C76;
   border-color: transparent;
   border-width: 0;
 }
 
 .btn-default-bg:hover, .btn-default-bg:focus, .btn-default-bg.focus {
   color: #fff;
-  background: #17bed2;
+  background: #4E8EF1;
   border-color: transparent;
 }
 
@@ -266,6 +274,7 @@ fieldset[disabled] .btn-theme {
     [Progress Bar]
 ------------------------------------------------------------------*/
 .progress-box .progress {
+  text-align: right;
   box-shadow: none;
   height: 3px;
 }
@@ -277,7 +286,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /*------------------------------------------------------------------
-  	[Social Icons]
+      [Social Icons]
 ------------------------------------------------------------------*/
 .social-icons {
   display: inline-block;
@@ -297,14 +306,14 @@ fieldset[disabled] .btn-theme {
 
 .social-icons:hover {
   color: #fff;
-  background: #515769;
+  background: #4E8EF1;
   transition-duration: 300ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
 }
 
 /*------------------------------------------------------------------
-  	[Promo Banner]
+      [Promo Banner]
 ------------------------------------------------------------------*/
 .promo-banner {
   text-align: center;
@@ -322,7 +331,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /*------------------------------------------------------------------
-  	[Promo Block]
+      [Promo Block]
 ------------------------------------------------------------------*/
 .promo-block {
   position: relative;
@@ -338,7 +347,7 @@ fieldset[disabled] .btn-theme {
 }
 
 .promo-block .promo-block-title {
-  font-size: 70px;
+  font-size: 50px;
   line-height: 1;
 }
 
@@ -378,7 +387,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /*------------------------------------------------------------------
-  	[Service]
+      [Service]
 ------------------------------------------------------------------*/
 .service {
   background: #fff;
@@ -422,7 +431,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /*------------------------------------------------------------------
-  	[Footer]
+      [Footer]
 ------------------------------------------------------------------*/
 .footer .footer-logo {
   width: 76px;
@@ -499,7 +508,7 @@ fieldset[disabled] .btn-theme {
 }
 
 .header .navbar-toggle:hover .toggle-icon {
-  background: #17bed2;
+  background: #284C76;
   transition-duration: 300ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
@@ -508,7 +517,7 @@ fieldset[disabled] .btn-theme {
 .header .navbar-toggle:hover .toggle-icon:before, .header .navbar-toggle:hover .toggle-icon:after {
   width: 21px;
   height: 1px;
-  background: #17bed2;
+  background: #284C76;
   transition-duration: 300ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
@@ -581,8 +590,8 @@ fieldset[disabled] .btn-theme {
   display: block;
   font-size: 13px;
   font-weight: 600;
-  font-family: Hind, sans-serif;
-  color: #515769;
+  font-family: Roboto, sans-serif;
+  color: #284C76;
   text-transform: uppercase;
   line-height: 55px;
   padding: 20px;
@@ -605,7 +614,7 @@ fieldset[disabled] .btn-theme {
   left: 0;
   width: 9px;
   height: 2px;
-  background: #17bed2;
+  background: #284C76;
   opacity: 0;
   content: " ";
   transition-duration: 400ms;
@@ -812,10 +821,10 @@ fieldset[disabled] .btn-theme {
 }
 
 /*------------------------------------------------------------------
-  	[Text Colors]
+      [Text Colors]
 ------------------------------------------------------------------*/
 .color-base {
-  color: #17bed2 !important;
+  color: #284C76 !important;
 }
 
 .color-white {
@@ -831,7 +840,7 @@ fieldset[disabled] .btn-theme {
 }
 
 .color-link {
-  color: #81848f !important;
+  color: #284C76 !important;
 }
 
 .color-link-hover {
@@ -843,10 +852,10 @@ fieldset[disabled] .btn-theme {
 }
 
 /*------------------------------------------------------------------
-  	[Background Colors]
+      [Background Colors]
 ------------------------------------------------------------------*/
 .bg-color-base {
-  background: #17bed2 !important;
+  background: #284C76 !important;
 }
 
 .bg-color-white {
@@ -937,7 +946,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /*------------------------------------------------------------------
-  	[Content]
+      [Content]
 ------------------------------------------------------------------*/
 .content {
   padding-top: 40px;
@@ -1007,6 +1016,10 @@ fieldset[disabled] .btn-theme {
 
 .margin-l-20 {
   margin-left: 20px !important;
+}
+
+.margin-l-50 {
+  margin-left: 50px !important;
 }
 
 /*------------------------------------------------------------------

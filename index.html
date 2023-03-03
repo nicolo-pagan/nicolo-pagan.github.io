@@ -11,124 +11,153 @@
     Premium:        Premium Metronic Admin Theme: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 ================================== -->
 <html lang="en" class="no-js">
-    <!-- BEGIN HEAD -->
-    <head>
-    	<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128409264-1"></script>
-		<script>
-  		window.dataLayer = window.dataLayer || [];
-  		function gtag(){dataLayer.push(arguments);}
-  		gtag('js', new Date());
+<!-- BEGIN HEAD -->
 
-  		gtag('config', 'UA-128409264-1');
-		</script>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128409264-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-        <meta charset="utf-8"/>
-        <title>Nicolò Pagan webpage</title>
-        <link rel="icon" href="http://control.ee.ethz.ch/etc/designs/ethz/img/icons/turquoise.ico">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <meta content="" name="description"/>
-        <meta content="" name="author"/>
+        gtag('config', 'UA-128409264-1');
+    </script>
 
-        <!-- GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
-        <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <meta charset="utf-8" />
+    <title>Nicolò Pagan webpage</title>
+    <link rel="icon" href="http://control.ee.ethz.ch/etc/designs/ethz/img/icons/turquoise.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
 
-        <!-- PAGE LEVEL PLUGIN STYLES -->
-        <link href="css/animate.css" rel="stylesheet">
-        <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-        <!-- THEME STYLES -->
-        <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
 
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="favicon.ico"/>
-        
-        <!-- Additional from w3 -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
- 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-            
- 		<!-- Additional: My_style -->
- 		<link href="css/my_style.css" type="text/css" rel="stylesheet">		
-<!--
+    <!-- THEME STYLES -->
+    <link href="css/layout.css" rel="stylesheet" type="text/css" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Additional from w3 -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+        integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+    <!-- Additional: My_style -->
+    <link href="css/my_style.css" type="text/css" rel="stylesheet">
+
+    <!-- Additional: Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400&display=swap" rel="stylesheet">
+
+    <!--
 
 	    <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 		<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css">
   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 -->
-        <link rel="stylesheet" href="css/style.css">
- 
-    </head>
-    <!-- END HEAD -->
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- BODY -->
-    <body id="body" data-spy="scroll" data-target=".header">
+</head>
+<!-- END HEAD -->
 
-        <!--========== HEADER ==========-->
-        <header class="header navbar-fixed-top">
-            <!-- Navbar -->
-            <nav class="navbar" role="navigation">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="menu-container js_nav-item">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="toggle-icon"></span>
-                        </button>
 
-                        <!-- Logo 
+<!-- BODY -->
+
+<body id="body" data-spy="scroll" data-target=".header">
+
+
+    <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container js_nav-item">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+
+                    <!-- Logo 
                         <div class="logo">
                             <a class="logo-wrap" href="#body">
                                 <img class="logo-img" src="img/logo.png" alt="Asentus Logo">
                             </a>
                         </div>
                         End Logo -->
-                    </div>
+                </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse nav-collapse">
-                        <div class="menu-container">
-                            <ul class="nav navbar-nav navbar-nav-right">
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">Home</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#news">News</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about">About</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#publications">Publications</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#research">Research</a></li>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#body">Home</a></li>
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#about">About</a></li>
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#research">Research</a></li>
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#teaching">Teaching</a></li>
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#publications">Publications</a></li>
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#news">News</a></li>
+                            <!--
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#work">Work</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#education">Education</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#interest">Personal Interests</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Contact</a></li>
-                            </ul>
-                        </div>
+                                -->
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#interest">Personal Interests</a></li>
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
+                                    href="#contact">Contact</a></li>
+                        </ul>
                     </div>
-                    <!-- End Navbar Collapse -->
                 </div>
-            </nav>
-            <!-- Navbar -->
-        </header>
-        <!--========== END HEADER ==========-->
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
 
-            
-        <!--========== SLIDER ==========-->
-        <div class="promo-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 sm-margin-b-60">
-                        <div class="margin-b-30">
-                            <h1 class="promo-block-title">Nicolò <br/> Pagan</h1>
-                            <p class="promo-block-text">Post-doctoral Researcher <br/> University of Zürich</p>
-                  	  	<ul class="list-inline">
+
+    <!--========== SLIDER ==========-->
+    <div class="promo-block">
+        <div class="container">
+            <div class="row">
+                <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/background.jpg"
+                    align="Avatar">
+                <div class="col-sm-7 sm-margin-b-60">
+                </div>
+                <div class="col-sm-5 sm-margin-b-20">
+                    <div class="margin-b-100">
+
+                        <h3 class="promo-block-title" align="right" style="color:white">Dr. Nicolò Pagan</h3>
+                        <p align="right" class="promo-block-text" style="color:white"> Post-doctoral Researcher <br />
+                            Social Computing Group <br /> Department of Informatics <br /> University of Zürich</p>
+                        <ul class="list-inline" align="right">
                             <li>
-                                <a href="https://www.linkedin.com/in/nicolo-pagan-55281036/?locale=en_US" class="social-icons"><i class="icon-social-linkedin"></i></a>
+                                <a href="https://www.linkedin.com/in/nicolo-pagan-55281036/?locale=en_US"
+                                    class="social-icons"><i class="icon-social-linkedin"></i></a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/NicoloPagan/" class="social-icons"><i class="icon-social-twitter"></i></a>
+                                <a href="https://twitter.com/NicoloPagan/" class="social-icons"><i
+                                        class="icon-social-twitter"></i></a>
                             </li>
                         </ul>
                         <!--
@@ -141,21 +170,16 @@
                		   	</ul>
                		   	</div>
                		   	-->
-               		    </div>
-               		  
                     </div>
-                    <div class="col-sm-6">
-                        <div class="promo-block-img-wrap">
-                            <img class="promo-block-img img-responsive" style="width:60%" src="img/mockup/CV-pic-Nicolo-rec.png" align="Avatar">
-                        </div>
-                    </div>
+
                 </div>
-                <!--// end row -->
             </div>
+            <!--// end row -->
         </div>
-        <!--========== SLIDER ==========-->
-     
-     <!--
+    </div>
+    <!--========== SLIDER ==========-->
+
+    <!--
         <div class="col-sm-9 sm-margin-b-60">
                       <div class="margin-b-60">
                       </div>
@@ -185,340 +209,759 @@
                             </ul>
                   </div>
         -->
-        <!--========== PAGE LAYOUT ==========-->
-        <!-- News -->
-           <div id="news">
-               <div class="container content-lg">
-                   <div class="row margin-b-40">
-                       <h2 class="w3-padding-16"><i class="my_text_color fa fa-newspaper-o fa-fw w3-margin-right w3-xxlarge"></i>News</h2>
-                       
-                       <div class="w3-container">
-                        <h6 class="my_text_color"> 30 September 2022 </h6>
-                        <p> I have been invited as a keynote speaker to the <a href="https://www.newsalliance.org/">  <b>EANA Conference</b></a> on "Media consumption habits of the young people"! Very exciting venue to show our <a href="research/EANA_keynote.pdf"> <b>latest results</b></a>!
-                              </p>
-                      </div>
+    <!--========== PAGE LAYOUT ==========-->
 
-                       <div class="w3-container">
-                        <h6 class="my_text_color"> 30 November 2021 </h6>
-                        <p> Our paper titled <a href="https://www.nature.com/articles/s41467-021-27089-8"> <b>A meritocratic network formation model for the rise of social media influencers</b></a> has been published in <span class="my_highlight"><b>Nature Communications</b></span>!
-                              </p>
-                      </div>
-                      
-                      <div class="w3-container">
-                       <h6 class="my_text_color"> October 2021 </h6>
-                        <p>Our grant proposal "Ethical auditing of control system methods" has been accepted! Looking forward to join <a href="https://nccr-automation.ch/"> <b>NCCR Automation</b></a> from January 2022!
-                             </p>
-                     </div>
-                  
-                  
-                      <div class="w3-container">
-                        <h6 class="my_text_color"> 15 October 2021 </h6>
-                         <p>I am invited to the AI+X Summit Event organized by the ETH AI Center!
-                              </p>
-                      </div>
-                      
-                        <div class="w3-container">
-                         <h6 class="my_text_color"> 01 May 2021 </h6>
-                          <p>I am now a Post-Doctoral researcher with the Social Computing Group (University of Zürich)!
-                               </p>
-                       </div>
-                       
-                            <div class="w3-container">
-                              <h6 class="my_text_color"> 08 April 2021 </h6>
-                               <p>I successfully defended my PhD Thesis titled <a href="research/PhD_presentation.pdf"> <b>Modeling, Analysis, and Inference in Social Network Formation</b></a>!
-                                    </p>
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-sm-7 sm-margin-b-60">
+                    <div class="margin-b-50">
+                        <div class="margin-b-30">
+                            <h2>About Me</h2>
+                            <p>
+                                <span class="my_highlight"> I am a computational data science engineer with a
+                                    multi-disciplinary background in the social, behavioural, and network
+                                    sciences.</span>
+                            </p>
+                            <p>
+                                Since May 2021, I am a <span class="my_highlight"> Post-doctoral Researcher </span> at
+                                the <a href="https://www.ifi.uzh.ch/en/scg.html" class="my_link">Social Computing
+                                    Group</a> at the University of Zürich.
+                                In April 2021, I completed my doctoral degree at the <a
+                                    href="https://control.ee.ethz.ch/" class="my_link">Automatic Control Lab</a> at ETH
+                                Zürich under the supervision of <a href="http://people.ee.ethz.ch/~floriand/"
+                                    class="my_link"> Prof. Florian Dörfler</a>.
+                                My primary research interests lie in the area of <span class="my_highlight"> social
+                                    media platform dynamics </span>, where I explore the complex interplay between AI
+                                and human decision-making.
+                                My final goal is to design effective interventions that foster social well-being.
+                            </p>
+                            <p>
+                                I consider myself half-mathematician and half-computer scientist, with strong analytical
+                                skills and creative thinking. Broadly speaking, I like mathematical modelling of social,
+                                natural, and engineering systems.
+                            </p>
+                            <p>
+                                During my spare time, I enjoy playing chess, practicing any kind of outdoor activity
+                                (especially on the mountains), travelling, photographing. I love beautiful natural
+                                landscapes and architecture.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="promo-block-img-wrap" align="right">
+                        <img class="promo-block-img img-responsive" style="width:60%"
+                            src="img/CV-pic-rectangular-B&W.png" align="Avatar">
+                    </div>
+                </div>
+                <div class="col-sm-7 sm-margin-b-60">
+                    <div class="margin-b-30">
+                        <h2>Bio</h2>
+                        <p>
+                            During my whole childhood I have shown an interest in the world of <span
+                                class="my_highlight">
+                                Mathematics</span>.
+                            I have been training with <span class="my_highlight"> logic</span> and <span
+                                class="my_highlight">
+                                algorithms</span> since I was eight years old when I learnt to
+                            play <span class="my_highlight">chess</span>.
+                            After gaining my High School Diploma with special distinction and a scholarship, I
+                            decided to leave my hometown, Venice, to follow my academic interests.
+                        </p>
+                        <p>
+                            In 2010, I received my <span class="my_highlight">B.Sc. in Mathematical
+                                Engineering</span> (summa cum Laude) from the Polytechnic of Turin.
+                            During my undergraduate study, I focused on different areas of mathematical modelling
+                            while building a solid analytical background.
+                            Thereafter, I completed my <span class="my_highlight">M.Sc. in Computational Science and
+                                Engineering</span> at EPFL in 2013.
+                            During this course, not only I integrated my mathematical background with <span
+                                class="my_highlight">high
+                                performance computing</span> competences, but I have also
+                            been exposed to cutting-edge techniques in
+                            <span class="my_highlight">Machine Learning</span> and <span class="my_highlight">Data
+                                Science</span>.
+                            <!-- , a novel master program with strong focus on Computational Skills and Mathematical Modelling. -->
+                        </p>
+                        <p>
+                            From 2013 to 2015, I worked as <span class="my_highlight">full-stack developer</span> in
+                            the Computational Fluid-dynamics field.
+                            This experience allowed me to bring my programming skills to a professional level as
+                            well as to foster my analytical skills.
+                            Simultaneously, it gave me the chance to develop team-working and leadership skills.
+                        </p>
+                        <p>
+                            In January 2016, I embarked in a new challenging experience, joining the Automatic
+                            Control Laboratory at ETH Zürich as <span class="my_highlight">doctoral student</span>.
+                            While receiving constant heterogeneous inputs from a lively, fast-paced research
+                            environment, I enhanced my interest
+                            for <span class="my_highlight"> complex social network systems</span>.
+                            I love the multi-disciplinarity of the topic, as well as the opportunity to deepen my
+                            knowledge in the field of <span class="my_highlight">Data Science</span>.
+                            I defended my dissertation titled <a
+                                href="https://www.research-collection.ethz.ch/handle/20.500.11850/501329"
+                                class="my_link"> Modeling, Analysis, and Inference in Social Network Formation</a>
+                            on April 8, 2021.
+                        </p>
+                        <p>
+                            From February 2021 to May 2021, I was <span class="my_highlight">lecturer</span> at the
+                            University of Zürich.
+                            From May 2021 to November 2021, I was a <span class="my_highlight">Post-doctoral
+                                researcher</span> at the <a class="my_link" href="https://sn.ethz.ch/"> Social
+                                Networks Lab</a> at ETH Zürich, and at the <a href="https://www.ifi.uzh.ch/en/scg.html"
+                                class="my_link">Social Computing Group</a>
+                            at the University of Zürich.
+                            Then, since November 2021, I am full-time a Post-doctoral researcher at the Social
+                            Computing Group.
+                            My research focus is on mathematical modelling of <span class="my_highlight"> online
+                                social media platforms</span>, with a particular emphasis on the <span
+                                class="my_highlight">recommendation
+                                systems' fairness</span>.
+                        </p>
+                    </div>
+                    <a href="CV_Pagan_Nicolò_2023.pdf"
+                        class="btn-theme btn-theme-md btn-default-bg text-uppercase">Download my CV
+                    </a>
+                </div>
+                <div class="col-sm-4" align="right">
+                    <div class="margin-l-50">
+                        <h2 align="right">Technical Skills</h2>
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Mathematical Modelling
+                            </h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-color-base" role="progressbar" data-width="87"></div>
                             </div>
-                            <!--
-                            <div class="w3-container">
-                              <h6 class="my_text_color"> March 2021 </h6>
-                               <p>I will be part of the Program Committee of next <a href="https://ic2s2-2021.ethz.ch/"> <b>IC2S2 conference</b></a> in Zürich, 27-31 July 2021!
-                                    </p>
+                        </div>
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Social Network Analysis
+                            </h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-color-base" role="progressbar" data-width="94"></div>
                             </div>
-                            <div class="w3-container">
-                              <h6 class="my_text_color"> 01 February 2021 </h6>
-                               <p>I joined the <a href="https://www.ifi.uzh.ch/en/scg.html"> <b> Social Computing Group</b> of Prof. Hannák at the University of Zürich as lecturer of the Social Computing course!</a>
-                                    </p>
-                            </div>
-                            <div class="w3-container">
-                              <h6 class="my_text_color"> 13 December 2020 </h6>
-                               <p>Invited talk titled
-                               <a href="research/CDC_Korea_2020.pdf"> <b>A meritocratic Network Formation Model</b>
-                                    at the <b>Dynamics in Social and Economic Networks Workshop</b></a>
-                               <span class="my_highlight"><b>CDC 2020 Korea, (held online)</b></span>!
-                                    </p>
-                            </div>
-                           <div class="w3-container">
-                                  <h6 class="my_text_color"> 21 September 2020 </h6>
-                                   <p>Invited talk <a>
-                                        <b>Game Theoretical Inference of Human Behavior in Social Networks</b></a> at
-                                   <span class="my_highlight"><b>Autonomy talk, IDSC ETH Zürich (held online)</b></span>! <a href="https://youtu.be/JwPvpV2WF3o?t=70"><b>Watch the video!</b></a>
-                                        </p>
-                           </div>
-                           <div class="w3-container">
-                                  <h6 class="my_text_color"> 09 June 2020 </h6>
-                                  <p>Invited talk <a>
-                                      <b>Game Theoretical Inference of Human Behavior in Social Networks</b></a> at
-                                      <span class="my_highlight"><b>Intelligent Control Seminar, Peking University (held online)</b></span>!
-                                  </p>
-                           </div>
-                           <div class="w3-container">
-                                  <h6 class="my_text_color"> 03 Dicember 2019 </h6>
-                                  <p>Blog post (Behind the paper) <a href="https://socialsciences.nature.com/users/327895-nicolo-pagan/posts/55507-can-social-network-structure-reveal-human-behavior"> <b>Can social network structure reveal human behavior?</b></a> at
-                                      <span class="my_highlight"><b>Behavioural and Social Sciences - Nature Research</b></span>!
-                                  </p>
-                           </div>
-                           -->
-                           <div class="w3-container">
-                               <!-- <h5><b>Ph.D. student & Research Assistant / ETH, Zürich (CH)</a></b></h5> -->
-                               <h6 class="my_text_color"> 03 Dicember 2019 </h6>
-                               <p>Our paper titled <a href="https://www.nature.com/articles/s41467-019-13148-8"> <b>Game Theoretical Inference of Human Behavior in Social Networks</b></a> has been published in <span class="my_highlight"><b>Nature Communications</b></span>!
-                                   
-                               </p>
-                               <!-- <a href="https://people.ee.ethz.ch/~pagann#research" class="btn-theme btn-theme-md btn-default-bg text-uppercase">Read more</a> -->
-                           </div>
-                           <!--
-                           <div class="w3-container">
-                               <h6 class="my_text_color"> November 2019 </h6>
-                               <p>
-                               <a href="https://people.ee.ethz.ch/~pagann#research">
-                                   From October 28 until November 29 I will be visiting scholar at the Math Department (DISMA) at Politecnico di Torino, Italy. </a> </p>
-                           </div>
-                           -->
-                   </div>
-               </div>
-         </div>
-         
-         <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/FeatureImage.jpg" align="Avatar">
-
-
-
-        <!-- About -->
-        <div id="about">
-            <div class="container content-lg">
-                <div class="row">
-                    <div class="col-sm-7 sm-margin-b-60">
-                     	<div class="margin-b-50">
-                            <div class="margin-b-30">
-                                <h2>About Me</h2>
-				    			<p>
-				    			I am a <span class="my_highlight"> Post-doctoral Researcher </span> at the <a href="https://www.ifi.uzh.ch/en/scg.html" class="link">Social Computing Group</a> at the University of Zürich.
-                                In April 2021, I completed my doctoral degree at the <a href="https://control.ee.ethz.ch/" class="link">Automatic Control Lab</a> at ETH Zürich under the supervision of Prof. Florian Dörfler.
-                                    My research focus is on modelling of <span class="my_highlight"> social networks and human decision making. </span>
-                                    I consider myself half-mathematician and half-computer scientist, with strong analytical skills and creative thinking. Broadly speaking, I like mathematical modelling of social, natural, and engineering systems.
-								</p>
-								<p>
-								During my spare time, I enjoy playing chess, practicing any kind of outdoor activity (especially on the mountains), travelling, photographing. I love beautiful natural landscapes and architecture.
-								</p>
-                        	</div>
-							<div>                        
-                            	<h2>Short Bio</h4>
-                                   <p> 
-                                   <!-- I grew up in the city of Venice, universally considered to be the most beautiful city in the world. Well, I did not grow up exactly on the canals, but slightly outside the historical center.
-                                   -->
-                                   During my whole childhood I have shown an interest in the world of <span class="my_highlight"> Mathematics</span>. 
-                                   I have been training with  <span class="my_highlight"> logic</span> and  <span class="my_highlight"> algorithms</span> since I was eight years old when I learnt to play <span class="my_highlight">chess</span>.
-                                   After gaining my High School Diploma with special distinction and a scholarship, I decided to leave my hometown, Venice, to follow my academic interests.
-                                   <!-- In 2007, I moved to Turin (Italy) to study <a class="my_highlight">Applied Mathematics</a> at the Polytechnic of Turin. After receiving my B.Sc. in 2010, I moved to Lausanne (CH) where I started -->
-                                   </p>
-                                   <p>
-                                   In 2010, I received my <span class="my_highlight">B.Sc. in Mathematical Engineering</span> (summa cum Laude) from the Polytechnic of Turin.
-                                   During my undergraduate study, I focused on different areas of mathematical modelling while building a solid analytical background.
-                                   <!-- After moving to Switzerland for a 6 months exchange period, I challenged myself enrolling in a different field of study at EPF Lausanne. -->
-                                   Thereafter, I completed my <span class="my_highlight">M.Sc. in Computational Science and Engineering</span>  at EPFL in 2013.
-                                   During this course, not only I integrated my mathematical background with <span class="my_highlight">high performance computing</span> competences, but I have also been exposed to cutting-edge techniques in 
-                                   <span class="my_highlight">Machine Learning</span> and <span class="my_highlight">Data Science</span>.
-                                   <!-- , a novel master program with strong focus on Computational Skills and Mathematical Modelling. -->
-                                   </p>
-                                   <p>
-                                   From 2013 to 2015, I worked as <span class="my_highlight">Full-stack Developer</span> on Computational Fluid-dynamics problems for a spin-off of ETH Zürich. 
-                                   This experience allowed me to bring my programming skills to a professional level as well as to foster my analytical skills. 
-                                   Simultaneously, it gave me the chance to develop team-working and leadership skills.
-                                   </p>
-                                   <p>
-                                 In January 2016, I embarked in a new challenging experience, joining the Automatic Control Laboratory at ETH Zürich as <span class="my_highlight">Doctoral Student</span>.
-                                   While receiving constant heterogeneous inputs from a lively, fast-paced research environment, I enhance my interest
-                                   for complex social network systems. I love the multi-disciplinarity of the topic, as well as the opportunity to deepen my knowledge in the field of Data Science.
-                                   </p>
-                                   <p>
-                                   Since May 2021, I am a Post-doctoral researcher with the University of Zürich and with ETH Zürich. My recent focus is on mathematical modelling of online social network systems, with a particular emphasis on the fairness of the recommendation systems.
-                                   </p>
-                                   
-                                
-				              </div>
-                              <a href="CV_2022.pdf" class="btn-theme btn-theme-md btn-default-bg text-uppercase">Download my CV</a>
-                        	</div>
-                    	</div>
-                    	<div class="col-sm-5">
-                        	<h2>Technical Skills</h2>
-                        	<!-- Progress Box -->
-                        	<div class="progress-box">
-                            	<h5>Mathematical Modelling
-                            	<!-- 
-                            	<span class="color-heading pull-right">87%</span>
-                            	-->
-                            	</h5>
-                            	<div class="progress">
-                                	<div class="progress-bar bg-color-base" role="progressbar" data-width="87"></div>
-                            	</div>
-                        	</div>
-                        	<div class="progress-box">
-                            	<h5>Social Network Analysis
-                            	<!-- 
-                            	<span class="color-heading pull-right">94%</span>
-                            	-->
-                            	</h5>
-                            	<div class="progress">
-                                	<div class="progress-bar bg-color-base" role="progressbar" data-width="94"></div>
-                            	</div>
-                        	</div>
-                        	<div class="progress-box">
-                            	<h5>Data Science
-                            	<!-- 
-                            	<span class="color-heading pull-right">83%</span></h5>
-                            	-->
-                            	<div class="progress">
-                                	<div class="progress-bar bg-color-base" role="progressbar" data-width="83"></div>
-                            	</div>
-                        	</div>
-                        	<div class="progress-box">
-                            	<h5>Programming
-                            	<!--
-                            	<span class="color-heading pull-right">85%</span></h5>
-                            	-->
-                            	<div class="progress">
-                                	<div class="progress-bar bg-color-base" role="progressbar" data-width="85"></div>
-                            	</div>
-	                        </div>
-    	                    <div class="progress-box">
-        	                    <h5>Statistical Analysis
-        	                    <!--
-        	                     <span class="color-heading pull-right">78%</span></h5>
-            	                -->
-            	                <div class="progress">
-                	                <div class="progress-bar bg-color-base" role="progressbar" data-width="78"></div>
-                    	        </div>
-                        	</div>
- 	                       <!-- End Progress Box -->
-						
-							<br>
-							<br>
-							<br>
-							<br>
-					
- 	                       <h2>Soft Skills</h2>
-    	                    <!-- Progress Box -->
-        	                <div class="progress-box">
-            	                <h5>Creative Problem Solving
-            	                <!--
-            	                <span class="color-heading pull-right">91%</span></h5>
-                	            -->
-                	            <div class="progress">
-                    	            <div class="progress-bar bg-color-base" role="progressbar" data-width="91"></div>
-                        	    </div>
-	                        </div>
-    	                    <div class="progress-box">
-        	                    <h5>Communication 
-        	                    <!--
-        	                    <span class="color-heading pull-right">88%</span></h5>
-            	                -->
-            	            	<div class="progress">
-                	                <div class="progress-bar bg-color-base" role="progressbar" data-width="88"></div>
-                    	        </div>
-	                        </div>
-    	                    <div class="progress-box">
-        	                    <h5>Leadership 
-        	                    <!--
-        	                    <span class="color-heading pull-right">75%</span></h5>
-            	                -->
-            	                <div class="progress">
-                	                <div class="progress-bar bg-color-base" role="progressbar" data-width="85"></div>
-                    	        </div>
-                        	</div>
-	                        <div class="progress-box">
-    	                        <h5>Teamwork 
-    	                        <!--
-    	                        <span class="color-heading pull-right">87%</span></h5>
-        	                    -->
-        	                    <div class="progress">
-            	                    <div class="progress-bar bg-color-base" role="progressbar" data-width="87"></div>
-                	            </div>
-                    	    </div>
-                        	<!-- End Progress Box -->
- 	                   </div>
-    	            </div>
-        	        <!--// end row -->
-            	</div>
+                        </div>
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Data Science
+                                <div class="progress">
+                                    <div class="progress-bar bg-color-base" role="progressbar" data-width="83"></div>
+                                </div>
+                        </div>
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Programming
+                                <div class="progress">
+                                    <div class="progress-bar bg-color-base" role="progressbar" data-width="85"></div>
+                                </div>
+                        </div>
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Statistical Analysis
+                                <div class="progress">
+                                    <div class="progress-bar bg-color-base" role="progressbar" data-width="78"></div>
+                                </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <h2 align="right">Soft Skills</h2>
+                        <!-- Progress Box -->
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Creative Problem Solving
+                                <div class="progress">
+                                    <div class="progress-bar bg-color-base" role="progressbar" data-width="91"></div>
+                                </div>
+                        </div>
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Communication
+                                <div class="progress">
+                                    <div class="progress-bar bg-color-base" role="progressbar" data-width="88"></div>
+                                </div>
+                        </div>
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Leadership
+                                <div class="progress">
+                                    <div class="progress-bar bg-color-base" role="progressbar" data-width="85"></div>
+                                </div>
+                        </div>
+                        <div class="progress-box">
+                            <h5 style="color:#282828">Teamwork
+                                <div class="progress">
+                                    <div class="progress-bar bg-color-base" role="progressbar" data-width="87"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!--// end row -->
             </div>
         </div>
-        <!-- End About -->
+    </div>
+    <!-- End About -->
+
+    <!-- Research -->
+    <div id="research">
+        <div class="bg-color-sky-light" data-auto-height="true">
+            <div class="container content-lg">
+                <div class="col-sm-7">
+                    <h2>Research</h2>
+                    <p> My primary research interests lie in the area of <span class="my_highlight">social media
+                            platform dynamics</span>, where I explore the complex
+                        interplay between technology and human behavior in an intricate network system. Through
+                        investigating
+                        these dynamics, I aim to gain insights into the effects (and especially the drawbacks) of social
+                        media on
+                        individuals, groups, and society as a whole.
+                        Through my expertise in mathematical modeling, complex systems analysis, and data science,
+                        I am able to delve into this field of study with a unique perspective.
+                    </p>
+                    <p>
+                        The significance of this research is driven by three primary factors.
+                    <ul class="my_info_list">
+                        <li> Firstly, social media platforms have a rapidly growing impact on shaping human cognition
+                            and behavior in essentially all domains,
+                            including information, education, labor market, and healthcare.
+                            At the same time, online platforms offer ample opportunities for researchers to
+                            quantitatively study these complex processes.
+                        </li>
+                        <li> Secondly, AI-powered recommendation engines pose critical challenges in regard to the
+                            quality, fairness, and type of information that users are exposed to.
+                        </li>
+                        <li>Finally, this research is inherently interdisciplinary, offering opportunities at the
+                            crossroads of communication,
+                            social, economic, and engineering sciences.
+                        </li>
+                    </ul>
+                    </p>
+                    <p>
+                        More broadly speaking, I am interested in Social and Engineering Systems and in problems that
+                        correspond to significant societal challenges,
+                        with an emphasis on areas such as autonomous systems, energy systems, finance, social networks,
+                        urban systems, and their underlying interconnections.
+                        In particular, I try to put an emphasis on the <span class="my_highlight">fairness </span>
+                        aspects.
+                        <!--          
+                            <p> My research interests lie at the intersection between <span class="my_highlight">Social Networks </span> and <span class="my_highlight">Human Decision Making</span>.
+                            More precisely, I focus on game theoretical models of social network formation:
+                           first, I designed an inverse game theoretical approach capable to reconstruct individual's preferences in social networks, second I developed a <span class="my_highlight">Social Network Formation model</span> based on <span class="my_highlight">User-Generated Content</span>, predominant feature of nowaday's most popular online platforms for social networks.
+                            </p>
+                            <p>
+                            Future directions of my research include 
+                           <ul>
+                             <li class="my_li"> <span class="my_highlight">fairness </span> of recommender systems in online social networks;</li>
+                             <li class="my_li"> <span class="my_highlight">human behavioral analysis </span> in real-world social networks;</li>
+                                <li class="my_li"> role of <span class="my_highlight">social circles </span> on information spreading.</li>
+                            </ul>
+                            </p>
+                            <p>
+                            More broadly speaking, I am interested in Social and Engineering Systems and in problems that correspond to significant societal challenges, 
+                            with an emphasis on areas such as autonomous systems, energy systems, finance, social networks, urban systems, and their underlying interconnections.
+                         In particular, I try to put an emphasis on the <span class="my_highlight">fairness </span> aspects.
+                            </p>
+                         -->
+                    </p>
+                </div>
+                <div class="col-sm-5">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="promo-block-img-wrap" align="center">
+                        <img class="promo-block-img img-responsive" style="width:60%"
+                            src="img/social_media_ecosystem.png" align="Avatar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects">
+        <div class="bg-color-sky-light" data-auto-height="true">
+            <div class="container content-lg">
+                <div class="col-sm-12">
+                    <h2>Projects</h2>
+                    <h3>Dynamics of Social Networks</h3>
+                    <p>
+                        The field that studies the dynamics of social networks aims to understand
+                        how social connections between individuals change over time. My primary research focus in this
+                        area is to build mathematical models that are both sociologically grounded and computationally
+                        feasible.
+                        These models consider the strategic incentives that drive individuals to form connections with
+                        others,
+                        such as shared interests or access to valuable resources. By using a game-theoretical approach,
+                        I developed a
+                        method for learning these individual preferences from social network data [J1]. My research
+                        provided
+                        sociological and
+                        strategic interpretations of random network models and yielded results that align with
+                        empirical, historical,
+                        and sociological observations. In more recent work, I focused on the network formation process
+                        surrounding
+                        the rise of social media influencers on popular platforms [J2]. Inspired by Twitter data
+                        analysis, I proposed
+                        a meritocratic network formation model where followers continuously search for the best
+                        user-generated
+                        content provider. The model’s predictions, validated against data collected from Twitch, a
+                        popular platform
+                        for gaming and video streaming, highlighted the importance of content quality in network
+                        formation.
+                    </p>
+                    <p>
+                        Below, you can find some of my presentations related to this topic.
+                    </p>
+                    <ul>
+                        <li>
+                            Keynote presentation at <a class="my_link" href="https://www.newsalliance.org/">EANA
+                                Conference</a> on <span class="my_highlight">Media consumption habits of the young
+                                people</span>, September 30, 2022, Zürich
+                            <p> The interplay between Content Quality and Recommender Systems in Social Network Dynamics
+                            </p>
+                            <a href="research/presentations/EANA_keynote.pdf">
+                                <img class="promo-block-img img-responsive my_img" style="width:20%"
+                                    src="img/EANA_keynote_frontpage.png" align="Avatar">
+                            </a>
+                        </li>
+                        <br>
+                        <li>
+                            <span class="my_highlight">Ph.D. Defense</span> , April 8, 2021, ETH Zürich
+                            <p>Modeling, Analysis, and Inference in Social Network Formation</p>
+                            <a href="research/presentations/PhD_presentation.pdf">
+                                <img class="promo-block-img img-responsive my_img" style="width:20%"
+                                    src="img/Phd_snapshot.png" align="Avatar">
+                            </a>
+                        </li>
+                        <br>
+                        <li>
+                            CDC 2020 Workshop on <span class="my_highlight">Dynamics in Social and Economics
+                                Network</span>, December, 2020, Korea (held online)
+                            <p>Invited talk: "A meritocratic Network Formation Model"</p>
+                            <a href="research/presentations/CDC_Korea_2020.pdf">
+                                <img class="promo-block-img img-responsive my_img" style="width:20%"
+                                    src="img/CDC_2020_snapshot.png" align="Avatar">
+                            </a>
+                        </li>
+                        <br>
+                        <li><span class="my_highlight">Autonomy talk, IDSC</span> September 21, 2020, ETH Zürich 
+                            <p>Invited talk <a class="my_link" href="https://youtu.be/JwPvpV2WF3o?t=70">Game Theoretical
+                                    Inference of Human Behavior in Social Networks</a>
+                            </p>
+                        </li>
+                        <br>
+                        <li>Workshop on <span class="my_highlight">Networks Dynamics in the Social, Economic, and
+                                Financial Sciences</span>, November 5-8, 2019, Torino
+                            <p>
+                            </p>
+                            <a href="research/presentations/2019_11_07_Workshop_Torino.pdf">
+                                <img class="promo-block-img img-responsive my_img" style="width:20%"
+                                    src="img/2019_11_07_preview.png" align="Avatar">
+                            </a>
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <h3>Dynamics on Social Networks</h3>
+                    <p>
+                        In addition to examining the structural evolution of social networks over
+                        time, it is crucial to analyze the internal dynamics on these networks. This involves
+                        investigating how information
+                        spreads within networks and how individual behaviors and attitudes are shaped by their social
+                        connections. To this end, I conducted both theoretical and empirical analyses. Regarding my
+                        theoretical contribution,
+                        I delved into the closed (feedback) loop between personalized recommender systems and opinion
+                        dynamics and I discovered that recommender systems possess the ability to steer individual
+                        opinions at the
+                        microscopic level, even if the overall distribution of opinions remains unchanged at the
+                        macroscopic level [C5].
+                        This finding raises important questions about the potential for significant distortion of
+                        individual opinions,
+                        even in situations where the overall macroscopic situation appears unaltered. Additionally, I
+                        provided a classification
+                        framework for the different types of feedback loops that occur in recommender systems, and in
+                        machine-learning-based decision-making systems more broadly [C7]. I demonstrated through
+                        simulations that
+                        feedback loops can perpetuate, reinforce, or even reduce biases, providing important insights
+                        into the impact
+                        of these systems in various domains. With respect to empirical work, I collected and analyzed
+                        Twitter data to
+                        study public debates surrounding the Covid-19 vaccination in Italy and abortion rights in the
+                        US. The aim
+                        was to integrate the analysis of users’ opinions and emotional states, as well as toxic
+                        behavior, by using natural
+                        language processing techniques and network analysis. Overall, this research provided valuable
+                        insights into
+                        the complex dynamics on social networks and their potential influence on individual opinions and
+                        behaviors.
+                    </p>
+                    <p>
+                        Below, you can find the presentations related to this topic.
+                    </p>
+                    <ul>
+                        <li>
+                            Invited at <span class="my_highlight">Professors Presentations</span> at the <a class="my_link" href="https://www.dsi.uzh.ch/de.html">Digital Society Initiative (DSI)</a>, February 28, 2023, Zürich
+                            <p> Social Computing: Bridging the Gap Between Technology and Human Interaction
+                            </p>
+                            <a href="research/presentations/Social_Computing_DSI_dynamics_on_social_media_low_res.pdf">
+                                <img class="promo-block-img img-responsive my_img" style="width:20%"
+                                    src="img/DSI_frontpage.jpg" align="Avatar">
+                            </a>
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <h3>Interventions on Social Media Platforms</h3>
+                    <p>
+                        As social media platforms continue to grow in popularity, they
+                        are not only becoming a hub for connecting with others but are also increasingly being leveraged as a means
+                        of making a living. The Creator Economy has seen tremendous growth over the past decade, with more than
+                        50 million content creators and a market worth over $104 billion. However, social media platforms do not always
+                        provide fair opportunities and compensation for these creators. My research in this area focuses on how
+                        various recommender systems impact fairness for content creators. Building on the meritocratic network formation
+                        model [J2] and through extensive computational analysis, I found that increasing the exploration of the
+                        recommender system generally leads to fairer outcomes for creators [C3]. However, and perhaps surprisingly,
+                        I also found that beyond a certain threshold, exploration ultimately diminishes fairness for creators [J3]. In
+                        my latest work, I further investigated the impact of potentially biased recommender systems in the presence
+                        of users’ homophilic behavior [C6]. The results of the study indicated that interventions designed to support
+                        protected users, such as those from minority groups, can be effective, but require additional care.
+                    </p>
+                    <p>
+                        Below, you can find the presentations related to this topic.
+                    </p>
+                    <ul>
+                        <li>
+                            Invited at <span class="my_highlight">Professors Presentations</span> at the <a class="my_link" href="https://www.dsi.uzh.ch/de.html">Digital Society Initiative (DSI)</a>, February 28, 2023, Zürich
+                            <p> Social Computing: Bridging the Gap Between Technology and Human Interaction
+                            </p>
+                            <a href="research/presentations/Social_Computing_DSI_Interventions_low_res.pdf">
+                                <img class="promo-block-img img-responsive my_img" style="width:20%"
+                                    src="img/DSI_frontpage.jpg" align="Avatar">
+                            </a>
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <h2>Open Projects</h2>
+                    <p> I am always looking for Master or Bachelor students to work on my current research
+                        topics.
+                        Usually, I require experience on <span class="my_highlight">social network
+                            analysis</span> and <span class="my_highlight">good mathematical skills</span> and
+                        <span class="my_highlight">programming expertise</span>.
+                    </p>
+                    <p>
+                        <!--<a href="https://sirop.org/app/e08bd9b0-1b18-4238-96a5-ba8f97b4d258" class="link"> Open Projects</a>
+                                                                                </p> 
+                                                                                <p>
+                                                                                -->
+                        If you are interested in working with me, please send me an <a href="mailto:nicolo.pagan@uzh.ch"
+                            class=my_link>email</a>
+                        with your <span class="my_highlight">resume</span> and your <span
+                            class="my_highlight">transcript of
+                            courses</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Teaching -->
+    <div id="teaching">
+        <div class="data-auto-height=" true">
+            <div class="container content-lg">
+                <div class="col-sm-12">
+                    <h2>Teaching</h2>
+                    <p>
+                        Early in my doctoral studies, I acquired teaching experience through various
+                        opportunities, including serving as a substitute instructor and head teaching assistant for
+                        undergraduate and
+                        graduate courses, as well as by delivering tutorial presentations. In spring 2021, I lectured
+                        in the course <a class="my_link"
+                            href="https://studentservices.uzh.ch/uzh/anonym/vvz/?sap-language=EN&sap-ui-language=EN#/details/2021/004/SM/50820965">Social
+                            Computing</a>, which focuses on the intersection between social behavior and computing
+                        systems. The aim of the course is to educate students on the impact of online platforms on human
+                        perception, social interaction, and the formation of societal norms. Through the course, I
+                        taught
+                        students
+                        how to formulate relevant research questions in this domain, how to gather data from various
+                        social
+                        media
+                        platforms, and how to analyze this data to answer their research questions.
+                    </p>
+                    <p>
+                        More detailed information on my teaching experience are available on my <a class="my_link"
+                            href="CV_Pagan_Nicolò_2023">CV</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Publications -->
-        
+
     <div id="publications">
         <div class="bg-color-sky-light" data-auto-height="true">
             <div class="container content-lg">
                 <div class="col-sm-12">
                     <h2>Publications</h2>
-                    <p> [1] <b>N. Pagan</b>, W. Mei, C. Li, and F. Dörfler. <span class="my_highlight"> <a href="https://www.nature.com/articles/s41467-021-27089-8"> A meritocratic network formation model for the rise of social media influencers</a></span>, Nature Communications 12, 6865 (2021). <!-- <a href="https://www.nature.com/articles/s41467-019-13148-8"> <b>doi: 10.1038/s41467-019-13148-8</b> </a>. -->
+                    <br>
+                    <h5>Journal Publications </h5>
+                    <p> [J2] <span class="my_highlight">N. Pagan</span>, W. Mei, C. Li, and F. Dörfler.
+                        <a class="my_link" href="https://www.nature.com/articles/s41467-021-27089-8"> A
+                            meritocratic network formation model for the rise of social media
+                            influencers</a>, Nature Communications 12, 6865 (2021).
+                        <!-- <a href="https://www.nature.com/articles/s41467-019-13148-8"> <b>doi: 10.1038/s41467-019-13148-8</b> </a>. -->
                     </p>
-                    <p> [2] <b>N. Pagan</b> and F. Dörfler. <span class="my_highlight"> <a href="https://www.nature.com/articles/s41467-019-13148-8"> Game theoretical inference of human behavior in social networks</a></span>, Nature Communications 10, 5507 (2019). <!--  <a href="https://www.nature.com/articles/s41467-019-13148-8"> <b>doi: 10.1038/s41467-019-13148-8</b> </a>.-->
+                    <p> [J1] <span class="my_highlight">N. Pagan</span> and F. Dörfler. <a class="my_link"
+                            href="https://www.nature.com/articles/s41467-019-13148-8">
+                            Game theoretical inference of human behavior in social networks</a>, Nature
+                        Communications 10, 5507 (2019).
+                        <!--  <a href="https://www.nature.com/articles/s41467-019-13148-8"> <b>doi: 10.1038/s41467-019-13148-8</b> </a>.-->
                     </p>
-                    <p> [3] <b>N. Pagan</b>. <span class="my_highlight"> <a href="https://socialsciences.nature.com/posts/55507-can-social-network-structure-reveal-human-behavior"> Can social network structure reveal human behavior?</a></span>, “Behind the paper” blog post at Behavioural and Social Sciences - Nature Research(2019).
+                    <br>
+                    <h5>Journal Publications - Under Review</h5>
+                    <p> [J3] S. Ioneuscu, A. Hannák, and <span class="my_highlight">N. Pagan</span>. <a class="my_link"
+                            href="research/papers/The Role of Luck in the Success of Social Media Influencers.pdf">
+                            The Role of Luck in the Success of Social Media Influencers</a>, invited and
+                        submitted to Applied Network Science.
                     </p>
-                    <p> [4] <b>N. Pagan</b> and F. Dörfler. <span class="my_highlight"> Learning strategic behavior in social and economic networks</span>, The 7th International Conference on Complex Networks and Their Applications: book of abstracts, p.207-209(2018).
-                    </p>
-                    <p> [5] J. Bao, S. Reboux, <b>N. Pagan</b>, and D. Lakehal <span class="my_highlight"> Cathare-TransAT Coupling for the Prediction of Boron Dilution in the ROCOM Test Facility</span>, 16th International Topical Meeting on Nuclear Reactor Thermal Hydraulics, Chicago, USA(2015).
+                    <br>
+                    <h5>Conference Publications</h5>
+                    <p> [C3] S. Ionescu, <span class="my_highlight">N. Pagan</span>, and A. Hannák. <a
+                            href="https://link.springer.com/chapter/10.1007/978-3-031-21127-0_14" class="my_link">
+                            Individual Fairness for Social Media Influencers</a>, 11<sup>th</sup>
+                        Conference on Complex Networks and their applications. (2023)
                     </p>
                     <p>
-                    [6] S. Altazin, B. Perucco, <b>N. Pagan</b>, K. Lapagna, T. Lanz, R. Knaack, E. Knapp, B. Ruhstaller,
-                        <span class="my_highlight"> Multi-scale modeling of organiclight-emitting devices</span>, SID Symposium Digest of Technical Papers(2013).
+                        [C2] J. Bao, S. Reboux, <span class="my_highlight">N. Pagan</span>, and D.
+                        Lakehal. Cathare-TransAT Coupling for the Prediction of Boron Dilution in the
+                        ROCOM Test Facility, 16<sup>th</sup> International Topical Meeting on Nuclear
+                        Reactor Thermal Hydraulics, (2015).
+                    </p>
+                    <p>
+                        [C1] S. Altazin, B. Perucco, <span class="my_highlight">N. Pagan</span>, K.
+                        Lapagna, T. Lanz, R. Knaack, E. Knapp, B. Ruhstaller. Multi-scale modeling of
+                        organic light-emitting devices, SID Symposium Digest of Technical Papers (2013).
+                    </p>
+                    <br>
+                    <h5>Conference Publications - Under Review</h5>
+                    <p> [C7] <span class="my_highlight">N. Pagan</span>*, J. Baumann*, E. Elokda, G. De
+                        Pasquale, S. Bolognani, and A. Hannák: A Classification of Feedback Loops and
+                        Their Relation to Biases in Automated Decision-Making Systems, under review at
+                        FAccT (2023). Manuscript available upon request.
+                    </p>
+                    <p>
+                        [C6]] S. Ionescu, A. Hannák, and <span class="my_highlight">N. Pagan</span>:
+                        Striving as a Social Media Influencer: is Creating Great Content Enough?,
+                        under review at FAccT (2023).
+                        Manuscript available upon request.
+                    </p>
+                    <p> [C5] N. Lanzetti, F. Dörfler, and <span class="my_highlight">N. Pagan</span>:
+                        The Impact of Recommendation Systems on Opinion Dynamics: Microscopic versus
+                        Macroscopic Effects, submitted to the IEEE Conference on Decision and Control
+                        (CDC) (2023). Manuscript available upon request.
+                    </p>
+                    <p>
+                        [C4] A. Maddux, <span class="my_highlight">N. Pagan</span>, G. Belgioioso, and
+                        F. Dörfler: <a class="my_link" href="https://arxiv.org/abs/2202.01229">
+                            Data-Driven Behaviour Estimation in Parametric Games</a>, under review at
+                        the IFAC World Congress. (2023)
+                    </p>
+                    <br>
+                    <h5>Extended Abstracts</h5>
+                    <p>
+                        [EA1] <span class="my_highlight">N. Pagan</span> and F. Dörfler: Learning
+                        strategic behavior in social and economic
+                        networks, The 7th International Conference on Complex Networks and Their
+                        Applications: book of abstracts, p.207-209 (2018).
+                    </p>
+                    <br>
+                    <h5>Extended Abstracts - Under Review</h5>
+                    <p>[EA3] <span class="my_highlight">N. Pagan</span>*, J. Baumann*, E. Elokda, G. De
+                        Pasquale, S. Bolognani, and A. Hannák:
+                        Closing the Loop: Feedback Loops and Biases in Automated Decision-Making
+                        Systems, under review at IC2S2 (2023).
+                        Abstract available upon request.
+                    </p>
+                    <p> [EA2] S. Ionescu, A. Hannák, and <span class="my_highlight">N. Pagan</span>: The
+                        impact of users’ homophily and recommendation biases on social network
+                        inequalities, under review at the International School and Conference on Network
+                        Science (NetSci) (2023).
+                    </p>
+                    <br>
+                    <h5>Ph.D. Thesis</h5>
+                    <p>
+                        [Th1] <span class="my_highlight">N. Pagan</span>: <a class="my_link"
+                            href="10.3929/ethz-b-000501329">Modeling, analysis, and inference in social
+                            network formation</a>, ETH Zürich Research Collection (2021).
+                    </p>
+                    <br>
+                    <h5>Media Coverage</h5>
+                    <p> [M3] <a class=my_link href="http://www.natureasia.com/en/research/highlight/13891">Mathematics:
+                            Investigating how social media influencers arise</a>, In: NatureAsia (2021).
+                    </p>
+                    <p> [M2] <a class=my_link href="https://phys.org/news/2021-12-what-influences-the-rise-of.html">What
+                            influences the rise of influencers?</a>, In: Phys.org (2021).
+                    </p>
+                    <p> [M1] <span class="my_highlight">N. Pagan</span>: <a class="my_link"
+                            href="https://socialsciences.nature.com/posts/55507-can-social-network-structure-reveal-human-behavior">
+                            Can social network structure reveal human behavior?</a></span>: “Behind
+                        the paper” blog post at Behavioural and Social Sciences - Nature Research
+                        (2019).
+                    </p>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Publications -->
-                     
-	  <!-- Research -->
-	  
-    
-	<div id="research">
-   		<div class="bg-color-sky-light" data-auto-height="true">
-            	<div class="container content-lg">
-          		 	<div class="col-sm-6">
-      	 	         	<h2>Research Activity</h2>		          
-   						<p> My research interests lie at the intersection between <span class="my_highlight">Social Networks </span> and <span class="my_highlight">Human Decision Making</span>.
-   						More precisely, I focus on game theoretical models of social network formation:
-  						first, I designed an inverse game theoretical approach capable to reconstruct individual's preferences in social networks, second I developed a <span class="my_highlight">Social Network Formation model</span> based on <span class="my_highlight">User-Generated Content</span>, predominant feature of nowaday's most popular online platforms for social networks.
-   						</p>
-   						<p>
-   						Future directions of my research include 
-  						<ul>
-                            <li class="my_li"> <span class="my_highlight">fairness </span> of recommender systems in online social networks;</li>
-                            <li class="my_li"> <span class="my_highlight">human behavioral analysis </span> in real-world social networks;</li>
-   							<li class="my_li"> role of <span class="my_highlight">social circles </span> on information spreading.</li>
-   						</ul>
-   						</p>
-   						<p>
-   						More broadly speaking, I am interested in Social and Engineering Systems and in problems that correspond to significant societal challenges, 
-   						with an emphasis on areas such as autonomous systems, energy systems, finance, social networks, urban systems, and their underlying interconnections.
-                        In particular, I try to put an emphasis on the <span class="my_highlight">fairness </span> aspects.
-   						</p>
-  					</div>
- 					<div class="col-sm-6">
-                    	<h2>Open Projects</h2>		                    
-           			 	<p> I am always looking for Master students to work on my current research topic. 
-           			 	Usually, I require <span class="my_highlight">strong mathematical skills</span> and <span class="my_highlight">good programming expertise</span>. Experience on <span class="my_highlight">Social Network Analysis</span> is beneficial. <br>
-           			 	</p>
-           				<p>
-   						<!--<a href="https://sirop.org/app/e08bd9b0-1b18-4238-96a5-ba8f97b4d258" class="link"> Open Projects</a>
-           			 	</p> 
-                	 	<p>
-                        -->
-           			 	If you are interested in working with me, please send me an <a href="mailto:nicolo.pagan@uzh.ch" class=link>email</a> with your <span class="my_highlight">resume</span> and your <span class="my_highlight">transcript of courses</span>.
-   						</p>
-   					</div>
-                </div>
-       		<div class="container content-lg">
 
+    <!-- News -->
+    <div id="news">
+        <div class="container content-lg">
+            <div class="row margin-b-40">
+                <h2 class="w3-padding-16"><i
+                        class="my_text_color fa fa-newspaper-o fa-fw w3-margin-right w3-xxlarge"></i>News
+                </h2>
+
+                <div class="w3-container">
+                    <h6 class="my_text_color"> 03 March 2023 </h6>
+                    <p> In April I will participate to the <a
+                            href="https://ims.nus.edu.sg/events/games-learning-and-networks/" class="my_link">Workshop
+                            on Games, Learning, and Networks</a> in Singapore!
+                        I will be talking about our new results on <span class="my_highlight">Strategic
+                            Coalition Formation among Social Media Content Creators</span>!
+                    </p>
+                </div>
+
+                <div class="w3-container">
+                    <h6 class="my_text_color"> 28 February 2023 </h6>
+                    <p> I gave a presentation titled <a
+                            href="research/presentations/Social_Computing_DSI_low_res.pdf"
+                            class="my_link">Social Computing: Bridging the Gap between Technology and
+                            Human Interaction</a> at the <a href="https://www.dsi.uzh.ch/de.html" class="my_link">
+                            DSI</a> Professors Presentations.
+                    </p>
+                </div>
+
+                <div class="w3-container">
+                    <h6 class="my_text_color"> 04 January 2023 </h6>
+                    <p> Our paper titled <a href="https://link.springer.com/chapter/10.1007/978-3-031-21127-0_14"
+                            class="my_link">
+                            Individual Fairness for Social Media Influencers</a> has been published in
+                        the Proceedings of the 11<sup>th</sup> Conference on Complex Networks and their
+                        applications!
+                    </p>
+                </div>
+
+                <div class="w3-container">
+                    <h6 class="my_text_color"> 30 September 2022 </h6>
+                    <p> I have been invited as a keynote speaker to the <a href="https://www.newsalliance.org/"
+                            class="my_link"> EANA
+                            Conference</a> on "Media consumption habits of the young people"!
+                        Very exciting venue to show our <a href="research/EANA_keynote.pdf" class="my_link"> latest
+                            results</a>!
+                    </p>
+                </div>
+
+                <div class="w3-container">
+                    <h6 class="my_text_color"> 30 November 2021 </h6>
+                    <p> Our paper titled <a href="https://www.nature.com/articles/s41467-021-27089-8" class="my_link"> A
+                            meritocratic network formation model for the rise of
+                            social media influencers</a> has been published in <span class="my_highlight">Nature
+                            Communications</span>!
+                    </p>
+                </div>
+
+                <div class="w3-container">
+                    <h6 class="my_text_color"> October 2021 </h6>
+                    <p>Our grant proposal <span class="my_highlight"> Ethical auditing of control system
+                            methods</span> has been accepted! Looking forward to join <a
+                            href="https://nccr-automation.ch/" class="my_link"> NCCR Automation</a> from
+                        January 2022!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <!--
+               <div class="w3-container">
+                 <h6 class="my_text_color"> 15 October 2021 </h6>
+                  <p>I am invited to the AI+X Summit Event organized by the ETH AI Center!
+                       </p>
+               </div>
+               
+                 <div class="w3-container">
+                  <h6 class="my_text_color"> 01 May 2021 </h6>
+                   <p>I am now a Post-Doctoral researcher with the Social Computing Group (University of Zürich)!
+                        </p>
+                </div>
+                
+                     <div class="w3-container">
+                       <h6 class="my_text_color"> 08 April 2021 </h6>
+                        <p>I successfully defended my PhD Thesis titled <a href="research/PhD_presentation.pdf"> <b>Modeling, Analysis, and Inference in Social Network Formation</b></a>!
+                             </p>
+                     </div>
+                   
+                     <div class="w3-container">
+                       <h6 class="my_text_color"> March 2021 </h6>
+                        <p>I will be part of the Program Committee of next <a href="https://ic2s2-2021.ethz.ch/"> <b>IC2S2 conference</b></a> in Zürich, 27-31 July 2021!
+                             </p>
+                     </div>
+                     <div class="w3-container">
+                       <h6 class="my_text_color"> 01 February 2021 </h6>
+                        <p>I joined the <a href="https://www.ifi.uzh.ch/en/scg.html"> <b> Social Computing Group</b> of Prof. Hannák at the University of Zürich as lecturer of the Social Computing course!</a>
+                             </p>
+                     </div>
+                     <div class="w3-container">
+                       <h6 class="my_text_color"> 13 December 2020 </h6>
+                        <p>Invited talk titled
+                        <a href="research/CDC_Korea_2020.pdf"> <b>A meritocratic Network Formation Model</b>
+                             at the <b>Dynamics in Social and Economic Networks Workshop</b></a>
+                        <span class="my_highlight"><b>CDC 2020 Korea, (held online)</b></span>!
+                             </p>
+                     </div>
+                    <div class="w3-container">
+                           <h6 class="my_text_color"> 21 September 2020 </h6>
+                            <p>Invited talk <a>
+                                 <b>Game Theoretical Inference of Human Behavior in Social Networks</b></a> at
+                            <span class="my_highlight"><b>Autonomy talk, IDSC ETH Zürich (held online)</b></span>! <a href="https://youtu.be/JwPvpV2WF3o?t=70"><b>Watch the video!</b></a>
+                                 </p>
+                    </div>
+                    <div class="w3-container">
+                           <h6 class="my_text_color"> 09 June 2020 </h6>
+                           <p>Invited talk <a>
+                               <b>Game Theoretical Inference of Human Behavior in Social Networks</b></a> at
+                               <span class="my_highlight"><b>Intelligent Control Seminar, Peking University (held online)</b></span>!
+                           </p>
+                    </div>
+                    <div class="w3-container">
+                           <h6 class="my_text_color"> 03 Dicember 2019 </h6>
+                           <p>Blog post (Behind the paper) <a href="https://socialsciences.nature.com/users/327895-nicolo-pagan/posts/55507-can-social-network-structure-reveal-human-behavior"> <b>Can social network structure reveal human behavior?</b></a> at
+                               <span class="my_highlight"><b>Behavioural and Social Sciences - Nature Research</b></span>!
+                           </p>
+                    </div>
+                    <div class="w3-container">
+                        <h5><b>Ph.D. student & Research Assistant / ETH, Zürich (CH)</a></b></h5> 
+                        <h6 class="my_text_color"> 03 Dicember 2019 </h6>
+                        <p>Our paper titled <a href="https://www.nature.com/articles/s41467-019-13148-8"> <b>Game Theoretical Inference of Human Behavior in Social Networks</b></a> has been published in <span class="my_highlight"><b>Nature Communications</b></span>!
+                            
+                        </p>
+                        <a href="https://people.ee.ethz.ch/~pagann#research" class="btn-theme btn-theme-md btn-default-bg text-uppercase">Read more</a>
+                    </div>
+                    <div class="w3-container">
+                        <h6 class="my_text_color"> November 2019 </h6>
+                        <p>
+                        <a href="https://people.ee.ethz.ch/~pagann#research">
+                            From October 28 until November 29 I will be visiting scholar at the Math Department (DISMA) at Politecnico di Torino, Italy. </a> </p>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+
+
+              
        		<div class="col-sm-12">
        		   	<h2>Research Timeline</h2>		          
    			
@@ -536,8 +979,8 @@
                                 <a href="research/EANA_keynote.pdf">
                                 <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/EANA_keynote_frontpage.png" align="Avatar">
                                 </a>
-                         </div> <!-- cd-timeline-content -->
-                    </div> <!-- cd-timeline-block -->
+                         </div> 
+                    </div> 
 
 
                     <div class="cd-timeline-block">
@@ -557,8 +1000,8 @@
                                 <a href="https://www.nature.com/articles/s41467-021-27089-8">
                                     <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/Feature_Image-2021.jpg" align="Avatar">
                                 </a>
-                        </div> <!-- cd-timeline-content -->
-                    </div> <!-- cd-timeline-block -->
+                        </div> 
+                    </div> 
                     
                     <div class="cd-timeline-block">
                         <div class="cd-timeline-img my_bg">
@@ -572,8 +1015,8 @@
                                 <a href="research/PhD_presentation.pdf">
                                 <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/Phd_snapshot.png" align="Avatar">
                                 </a>
-                         </div> <!-- cd-timeline-content -->
-                    </div> <!-- cd-timeline-block -->
+                         </div> 
+                    </div>
                     
                     <div class="cd-timeline-block">
                         <div class="cd-timeline-img my_bg">
@@ -587,8 +1030,8 @@
                                 <a href="research/CDC_Korea_2020.pdf">
                                 <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/CDC_2020_snapshot.png" align="Avatar">
                                 </a>
-                         </div> <!-- cd-timeline-content -->
-                    </div> <!-- cd-timeline-block -->
+                         </div> 
+                    </div> 
                     <div class="cd-timeline-block">
                         <div class="cd-timeline-img my_bg">
                             <i class="cd-timeline-icon white fa fa-microphone w3-margin-right w3-xlarge "></i>
@@ -601,8 +1044,8 @@
                                 </span> <a href="https://youtu.be/JwPvpV2WF3o?t=70">
                                     <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/Autonomy_talk_intro.jpg" align="Avatar">
                                     </a>
-                         </div> <!-- cd-timeline-content -->
-                    </div> <!-- cd-timeline-block -->
+                         </div> 
+                    </div> 
                     <div class="cd-timeline-block">
 						<div class="cd-timeline-img my_bg">
 							<i class="cd-timeline-icon white fa fa-microphone w3-margin-right w3-xlarge "></i>
@@ -615,8 +1058,8 @@
                                 <a href="research/Emergence_of_scaling_on_the_followers_of_social_media_influencers.pdf">
                                 <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/Fig_Emergence_of_scaling_on_the_followers_of_social_media_influencers.png" align="Avatar">
                                 </a>
- 						</div> <!-- cd-timeline-content -->
-					</div> <!-- cd-timeline-block -->
+ 						</div> 
+					</div> 
                     
                     <div class="cd-timeline-block">
                                        <div class="cd-timeline-img my_bg">
@@ -635,8 +1078,8 @@
                                            <a href="https://www.nature.com/articles/s41467-019-13148-8">
                                            <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/FeatureImage.jpg" align="Avatar">
                                            </a>
-                                        </div> <!-- cd-timeline-content -->
-                                    </div> <!-- cd-timeline-block -->
+                                        </div> 
+                                    </div> 
 
                                 <div class="cd-timeline-block">
                                     <div class="cd-timeline-img my_bg">
@@ -650,8 +1093,8 @@
                                         <a href="research/2019_11_07_Workshop_Torino.pdf">
                                             <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/2019_11_07_preview.png" align="Avatar">
                                         </a>
-                                    </div> <!-- cd-timeline-content -->
-                                </div> <!-- cd-timeline-block -->
+                                    </div> 
+                                </div> 
                 
                                 <div class="cd-timeline-block">
                                     <div class="cd-timeline-img my_bg">
@@ -665,8 +1108,8 @@
                                                                       <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/2019_11_28_preview.png" align="Avatar">
                                                                   </a>
                                         <span class="cd-date my_text_color"> Oct 28 - Nov 29, 2019 </span>
-                                    </div> <!-- cd-timeline-content -->
-                                </div> <!-- cd-timeline-block -->
+                                    </div> 
+                                </div> 
 
                 
 					<div class="cd-timeline-block">
@@ -681,23 +1124,23 @@
                             <a href="research/Pagan_Complex_Networks_Conference_2018.pdf">
                                                         <img class="promo-block-img img-responsive my_img" style="width:100%" src="img/Fig_Cambridge.png" align="Avatar">
                                                         </a>
-						</div> <!-- cd-timeline-content -->
-					</div> <!-- cd-timeline-block -->
+						</div> 
+					</div> 
 	
 					<div class="cd-timeline-block">
 						<div class="cd-timeline-img my_bg">
 							<i class="cd-timeline-icon-university white fa fa-university w3-margin-right w3-xlarge "></i>
 						</div>
-			<!--		<div class="cd-timeline-img my_bg">
+			    		<div class="cd-timeline-img my_bg">
 						<img src="img/logo_CN_2018.png" alt="complex_networks">
 						</div> 
-			 -->
+			
 						<div class="cd-timeline-content">
 							<h7><b>Summer School "Economic Networks 2018", Oxford</b></h5>
                                 <p></p>
 							<span class="cd-date my_text_color"> June 25-29, 2018 </span>
-						</div> <!-- cd-timeline-content -->
-					</div> <!-- cd-timeline-block -->
+						</div> 
+					</div> 
 
 
 					<div class="cd-timeline-block">
@@ -711,8 +1154,8 @@
 						    <a href="research/NETSCI_2018_Pagan.pdf" class="cd-read-more">Read more</a>
 	
 							<span class="cd-date my_text_color"> June 12, 2018 </span>	
-						</div> <!-- cd-timeline-content -->
-					</div> <!-- cd-timeline-block -->
+						</div> 
+					</div> 
 
 					<div class="cd-timeline-block">
 						<div class="cd-timeline-img my_bg">
@@ -724,18 +1167,18 @@
 							<p>Invited talk: "From individuals decisions to emerging social structure"</p>
 							<span class="cd-date my_text_color"> February 14, 2018 </span>
 							<a href="research/IRC_2018_Pagan.pdf" class="cd-read-more">Read more</a>
-						</div> <!-- cd-timeline-content -->
-					</div> <!-- cd-timeline-block -->
+						</div> 
+					</div> 
 
-				</section> <!-- cd-timeline -->
+				</section> 
  			</div>
 	 	</div>
 	 	</div>
 	 </div>
- 	
-  
+    -->
 
-        <!-- Research 
+
+                <!-- Research 
         <div id="research">
             <div class="container content-lg">
                 <div class="row margin-b-40">
@@ -780,10 +1223,9 @@
                 </div>
             </div>
         </div>
-        End Research -->
- 
- <!-- Work -->
-   <div id="work">
+    -->
+                <!-- Work 
+    <div id="work">
        <div class="container content-lg">
            <div class="row margin-b-40">
                <h2 class="w3-padding-16"><i class="my_text_color fa fa-suitcase fa-fw w3-margin-right w3-xxlarge"></i>Work Experience</h2>
@@ -813,12 +1255,11 @@
                </div>
            </div>
        </div>
- </div>
- 
- <!-- End Work -->
+    </div>
+    -->
 
-   <!-- Education -->
-   <div id="education">
+                <!-- Education 
+    <div id="education">
        <div class="container content-lg">
            <div class="row margin-b-40">
                <div class="col-sm-6">
@@ -840,13 +1281,12 @@
                        </p>
                    <hr>
                    </div>
-           <!--           <div class="w3-container">
+                   <div class="w3-container">
                        <h5><b>Alta Scuola Politecnica (ASP), Polytechnic of Turin & Polytechnic of Milan (IT).</b></h5>
                        <h6 class="my_text_color""><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2011</h6>
                        <p> Advanced Educational Program.</p>
                    <hr>
                    </div>
-           -->
                    <div class="w3-container">
                        <h5><b>Polytechnic of Turin</h5>
                        <h6 class="my_text_color"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2007 - 2010</h6>
@@ -872,192 +1312,218 @@
                </div>
            </div>
        </div>
- </div>
- 
- <!-- End Education -->
+    </div>
+    -->
 
- <!--
+                <!--
  <img class="promo-block-img img-responsive" style="width:100%" src="img/FeatureImage.jpg" align="Avatar">
  -->
 
- 
-      <!-- Interest -->
-        <div id="interest">
-            <div class="bg-color-sky-light" data-auto-height="true">
-                <div class="container content-lg">
-                    <h2>Personal Interest</h2>		
-                    <div class="row row-space-2 margin-b-4">
-                    	<div class="col-md-3 col-sm-6">
-                            <div class="service" data-height="height">
-                                <div class="service-element">
-                                    <i class="fas fa-mountain my_icon"></i>
-                                </div>
-                                <div class="service-info">
-                                    <h3>Outdoor Sports</h3>
-                                    <p class="margin-b-5">
-                                    Hiking, Climbing, Mountaineering, Mountain-biking, Skiing, Snowboarding, Ski-touring are among my favorite weekend's activities.
-                                    On weekdays, I can still go out for a run, a swim in the lake. If weather is against me, you can still find me playing table-tennis indoor!
-                                    </p>
-                                </div>
-                                <!-- <a href="#" class="content-wrapper-link"></a>  -->  
+
+    <!-- Interest -->
+    <div id="interest">
+        <div class="bg-color-sky-light" data-auto-height="true">
+            <div class="container content-lg">
+                <h2>Personal Interest</h2>
+                <div class="row row-space-2 margin-b-4">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service" data-height="height">
+                            <div class="service-element">
+                                <i class="fas fa-mountain my_icon"></i>
                             </div>
+                            <div class="service-info">
+                                <h3>Outdoor Sports</h3>
+                                <p class="margin-b-5">
+                                    Hiking, Climbing, Mountaineering, Mountain-biking,
+                                    Skiing,
+                                    Snowboarding, Ski-touring are among my favorite
+                                    weekend's
+                                    activities.
+                                    On weekdays, I can still go out for a run, a swim in the
+                                    lake. If
+                                    weather is against me, you can still find me playing
+                                    table-tennis
+                                    indoor!
+                                </p>
+                            </div>
+                            <!-- <a href="#" class="content-wrapper-link"></a>  -->
                         </div>
-                        <div class="col-md-3 col-sm-6 md-margin-b-4">
-                            <div class="service" data-height="height">
-                                <div class="service-element">
-                                    <i class="fas fa-globe-americas my_icon""></i>
-                                </div>
-                                <div class="service-info">
+                    </div>
+                    <div class="col-md-3 col-sm-6 md-margin-b-4">
+                        <div class="service" data-height="height">
+                            <div class="service-element">
+                                <i class="fas fa-globe-americas my_icon""></i>
+                                                                </div>
+                                                                <div class=" service-info">
                                     <h3>Travelling</h3>
-                                    <p class="margin-b-5"> 
-                                    Travelling truly influences my life. I am enthusiastic about new cultures, adventures, experiences. 
-                                    I can't wait for the next trip!
-                                    </p>
-                                </div>
-                                <!-- <a href="#" class="content-wrapper-link"></a>     -->
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 md-margin-b-4">
-                            <div class="service" data-height="height">
-                                <div class="service-element">
-                                    <i class="fas fa-chess my_icon""></i>
-                               </div>
-                                <div class="service-info">
-                                    <h3>Chess</h3>
-                                    <p class="margin-b-5">I started playing chess as a kid, following my brother's example. 
-                                    Even though I do not have time to practice it often anymore, I am glad it fostered my logical/critical thinking.
-                                    </p>
-                                </div>
-                                <!-- <a href="#" class="content-wrapper-link"></a>    -->
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 sm-margin-b-4">
-                            <div class="service" data-height="height">
-                                <div class="service-element">
-                                    <i class="fas fa-camera-retro my_icon"></i>
-                                </div>
-                                <div class="service-info">
-                                    <h3>Photography</h3>
                                     <p class="margin-b-5">
-                                    Still at the amateur level, I try to push my photographic skills as hard as possible.
-                                    Landscape photography is one of my favorite. Whenever possible, I combine it with travelling and outdoor sports.
+                                        Travelling truly influences my life. I am
+                                        enthusiastic about new
+                                        cultures, adventures, experiences.
+                                        I can't wait for the next trip!
+                                        If you are curious, look at the <a class="my_link"
+                                            href="https://www.ubiquitous-blog.com/">blog</a>
+                                        my wife Lucia is curating!
                                     </p>
-                                </div>
-                                <!-- <a href="#" class="content-wrapper-link"></a>    -->
                             </div>
+                            <!-- <a href="#" class="content-wrapper-link"></a>     -->
                         </div>
                     </div>
-                    <!--// end row -->
-                </div>
-            </div>
-        </div>
-
-        <!-- End Interest -->
-
-           
-	<!-- Contact -->
-        <div id="contact">
-            <div class="bg-color-sky-light">
-                <div class="container content-lg">
-                    <div class="row margin-b-40">
-                        <div class="col-sm-6">
-                           <h2>Contact Me</h2>
+                    <div class="col-md-3 col-sm-6 md-margin-b-4">
+                        <div class="service" data-height="height">
+                            <div class="service-element">
+                                <i class="fas fa-chess my_icon""></i>
+                                                                </div>
+                                                                <div class=" service-info">
+                                    <h3>Chess</h3>
+                                    <p class="margin-b-5">I started playing chess as a kid,
+                                        following my
+                                        brother's example.
+                                        Even though I do not have time to practice it often
+                                        anymore, I
+                                        am glad it fostered my logical/critical thinking.
+                                    </p>
+                            </div>
+                            <!-- <a href="#" class="content-wrapper-link"></a>    -->
                         </div>
                     </div>
-             
-                    <div class="row">
-                        <div class="col-md-3 col-xs-6 md-margin-b-30">
-                            <h4>Location</h4>
-                            <a href="https://www.google.com/maps?q=andreasstrasse+15&um=1&ie=UTF-8&sa=X&sqi=2&ved=2ahUKEwiNwfj3qcLzAhWoF1kFHdggCcEQ_AUoAXoECAEQAw">Andreasstrasse 15, AND 2.60, Zürich, 8050 Switzerland</a>
+                    <div class="col-md-3 col-sm-6 sm-margin-b-4">
+                        <div class="service" data-height="height">
+                            <div class="service-element">
+                                <i class="fas fa-camera-retro my_icon"></i>
+                            </div>
+                            <div class="service-info">
+                                <h3>Photography</h3>
+                                <p class="margin-b-5">
+                                    Still at the amateur level, I try to push my
+                                    photographic skills as
+                                    hard as possible.
+                                    Landscape photography is one of my favorite. Whenever
+                                    possible, I
+                                    combine it with travelling and outdoor sports.
+                                </p>
+                            </div>
+                            <!-- <a href="#" class="content-wrapper-link"></a>    -->
                         </div>
-                        <div class="col-md-3 col-xs-6">
-                            <h4>Email</h4>
-                            <a href="mailto:nicolo.pagan@uzh.ch">nicolo.pagan.at.uzh.ch</a>
-                        </div>
-                        <div class="col-md-3 col-xs-6">
-                            <h4>Web</h4>
-                            <a href="#">nicolo-pagan.github.io</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Contact -->
-        
-        <!--========== END PAGE LAYOUT ==========-->
-
-        <!--========== FOOTER ==========-->
-        <footer class="footer">
-            <div class="content container">
-                <div class="row">
-                    <div class="col-xs-6">
-                    	<blockquote>
-                    	"Live your life, take chances, be crazy. Don’t wait ‘cause right now is the oldest you’ve ever been and the youngest you’ll be ever again."
-                    	<br>
-                    	<br>
-                    	<p> Suzanne Collins</p>
-                    	</blockquote>
-                        <!-- <img class="footer-logo" src="img/logo.png" alt="Acecv Logo"> -->
-                    </div>
-                    <div class="col-xs-6 text-right sm-text-left">
-			    <!--                <p class="margin-b-0"><a class="fweight-700" href="http://keenthemes.com/preview/acecv/">Acecv</a> Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p> -->
                     </div>
                 </div>
                 <!--// end row -->
             </div>
-        </footer>
-        
-        <footer>
-            <div class="content container">
+        </div>
+    </div>
+    
+    <!-- End Interest -->
+
+    <!-- Contact -->
+    <div id="contact">
+        <div class="bg-color-sky-light">
+            <div class="container content-lg">
+                <div class="row margin-b-40">
+                    <div class="col-sm-6">
+                        <h2>Contact Me</h2>
+                    </div>
+                </div>
+    
                 <div class="row">
-		        	<small>
-        			&copy; Copyright 2022 Nicolò Pagan
-        			</small>
-   	             </div>
-                <!--// end row -->
+                    <div class="col-md-3 col-xs-6 md-margin-b-30">
+                        <h4>Location</h4>
+                        <a
+                            href="https://www.google.com/maps?q=andreasstrasse+15&um=1&ie=UTF-8&sa=X&sqi=2&ved=2ahUKEwiNwfj3qcLzAhWoF1kFHdggCcEQ_AUoAXoECAEQAw">Andreasstrasse
+                            15, AND 2.60, <br> Zürich, 8050 Switzerland</a>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <h4>Email</h4>
+                        <a href="mailto:nicolo.pagan@uzh.ch">nicolo.pagan.at.uzh.ch</a>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <h4>Web</h4>
+                        <a href="#">nicolo-pagan.github.io</a>
+                    </div>
+                </div>
             </div>
-        </footer>
-        <!--========== END FOOTER ==========-->
+        </div>
+    </div>
+    <!-- End Contact -->
 
-        <!-- Back To Top -->
-   	    <script src="js/index.js"></script>
-        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!--========== END PAGE LAYOUT ==========-->
 
-        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-        <!-- CORE PLUGINS -->
-        <script src="vendor/jquery.min.js" type="text/javascript"></script>
-        <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <blockquote>
+                        "Live your life, take chances, be crazy. Don’t wait ‘cause right now
+                        is the
+                        oldest you’ve ever been and the youngest you’ll be ever again."
+                        <br>
+                        <br>
+                        <p> Suzanne Collins</p>
+                    </blockquote>
+                    <!-- <img class="footer-logo" src="img/logo.png" alt="Acecv Logo"> -->
+                </div>
+                <div class="col-xs-6 text-right sm-text-left">
+                    <!--                <p class="margin-b-0"><a class="fweight-700" href="http://keenthemes.com/preview/acecv/">Acecv</a> Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p> -->
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    
+    <footer>
+        <div class="content container">
+            <div class="row">
+                <small>
+                    &copy; Copyright 2023 Nicolò Pagan
+                </small>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    
+    <!-- Back To Top -->
+    <script src="js/index.js"></script>
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="vendor/jquery.easing.js" type="text/javascript"></script>
+    <script src="vendor/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="vendor/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="vendor/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="vendor/jquery.appear.js" type="text/javascript"></script>
+    <script src="vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+    
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="js/layout.min.js" type="text/javascript"></script>
+    <script src="js/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="js/components/swiper.min.js" type="text/javascript"></script>
+    <script src="js/components/wow.min.js" type="text/javascript"></script>
+    
+    <!-- My page scripts -->
+    <!--		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    -->
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-128409264-1', 'auto');
+        ga('send', 'pageview');
+        <script type="text/javascript">
+    </script>
 
-        <!-- PAGE LEVEL PLUGINS -->
-        <script src="vendor/jquery.easing.js" type="text/javascript"></script>
-        <script src="vendor/jquery.back-to-top.js" type="text/javascript"></script>
-        <script src="vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
-        <script src="vendor/jquery.wow.min.js" type="text/javascript"></script>
-        <script src="vendor/jquery.parallax.min.js" type="text/javascript"></script>
-        <script src="vendor/jquery.appear.js" type="text/javascript"></script>
-        <script src="vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+</body>
+<!-- END BODY -->
 
-        <!-- PAGE LEVEL SCRIPTS -->
-        <script src="js/layout.min.js" type="text/javascript"></script>
-        <script src="js/components/progress-bar.min.js" type="text/javascript"></script>
-        <script src="js/components/swiper.min.js" type="text/javascript"></script>
-        <script src="js/components/wow.min.js" type="text/javascript"></script>
-		
-		<!-- My page scripts -->
-<!--		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
--->
-		<script async="" src="//www.google-analytics.com/analytics.js"></script>
-		<script type="text/javascript">
-  		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
- 		 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
- 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  		ga('create', 'UA-128409264-1', 'auto');
- 		ga('send', 'pageview');
- 		<script type="text/javascript">
-		</script>
- 		
-    </body>
-    <!-- END BODY -->
 </html>

@@ -1,30 +1,42 @@
 .my_text_color {
-	color: #17bed2;
+	color: #284C76;
 }
 .white{
 	color: white;
 }
 
 .my_bg_color {
-	background-color: #17bed2;
+	background-color: #284C76;
 }
 
 .my_bg {
-	background: #17bed2;
+	background: #284C76;
 }
-.my_highlight {
-	font-weight: normal;
-	color: #17bed2;
+.my_li {
+	font-weight: 100;
 	font-size: 15px;
+	line-height: 1.0;
+	margin-bottom: 8px;
 }
 
-.my_li {
+.my_highlight {
+	color: #737374;
+	font-family: Roboto !important;
+	font-weight: 400 !important;
+	/*
   font-size: 15px;
-  font-weight: 400;
-  font-family: Hind, sans-serif;
-  color: #a6a7aa;
   line-height: 1.0;
   margin-bottom: 8px;
+  */
+    font-style: italic;
+}
+
+.my_link {
+	color: #284C76;
+	font-family: Roboto !important;
+	font-weight: 400 !important;
+	font-stretch: condensed !important;
+	text-decoration: underline;
 }
 
 .thumb {
@@ -77,7 +89,7 @@
 }
 
 .my_img:hover {
-  opacity: 0.5;
+  opacity: 1.0;
   filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
@@ -90,3 +102,10 @@
   opacity: 1.0;
   filter: alpha(opacity=100); /* For IE8 and earlier */
 }
+
+div.horizontalgap {
+	float: left;
+	overflow: hidden;
+	height: 1px;
+	width: 0px;
+  }
