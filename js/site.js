@@ -26,15 +26,17 @@
 
   /* ---------------- Featured research ---------------- */
   const featured = $("#featured");
-  S.papers.filter((p) => p.featured && !p.status).forEach((p) => {
-    const row = el("article", "feat reveal");
+  S.papers.filter((p) => p.featured && !p.status).forEach((p, k) => {
+    // figure and text slide in from opposite sides, alternating per row
+    const [figDir, txtDir] = k % 2 ? ["from-right", "from-left"] : ["from-left", "from-right"];
+    const row = el("article", "feat");
     row.innerHTML = `
-      <figure class="feat-fig" data-zoom="${p.figure}" data-caption="${esc(p.caption || p.title)}">
+      <figure class="feat-fig reveal ${figDir}" data-zoom="${p.figure}" data-caption="${esc(p.caption || p.title)}">
         <img src="${p.figure}" alt="${esc(p.caption || p.title)}" loading="lazy">
         <span class="zoom-hint">${icon("expand")}</span>
         ${p.caption ? `<figcaption>${esc(p.caption)}</figcaption>` : ""}
       </figure>
-      <div>
+      <div class="reveal ${txtDir}" style="--d:.12s">
         <div class="feat-meta"><span class="venue">${esc(p.venue)}</span><span class="year">${p.year}</span></div>
         <h3>${esc(p.title)}</h3>
         <p class="authors">${boldMe(p.authors)}</p>
@@ -136,7 +138,8 @@
   /* ---------------- Posters ---------------- */
   const posterGrid = $("#posterGrid");
   S.posters.forEach((p) => {
-    const f = el("figure", "poster reveal");
+    const f = el("figure", "poster reveal zoom");
+    f.style.setProperty("--d", `${(S.posters.indexOf(p) % 5) * 0.08}s`);
     f.dataset.openPoster = p.id;
     f.innerHTML = `<div class="poster-img"><img src="assets/posters/${p.id}-thumb.webp" alt="${esc(p.title)}" loading="lazy"></div>
       <figcaption><b>${esc(p.title)}</b><small>${esc(p.venue)}</small></figcaption>`;
@@ -193,7 +196,8 @@
       <div>
         <h4>${href ? `<a href="${href}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</h4>
         <p class="authors">${boldMe(p.authors)}</p>
-        <div class="pub-tags"><span class="tag venue-tag">${venueTag}</span>${p.topics.map((t) => `<span class="tag">${esc(S.topics[t])}</span>`).join("")}${paperActions(p, "mini-link")}</div>
+        <div class="pub-tags"><span class="tag venue-tag">${venueTag}</span>${p.topics.map((t) => `<span class="tag">${esc(S.topics[t])}</span>`).join("")}${p.summary ? `<button class="mini-link summary-toggle" aria-expanded="false">Summary <svg class="ic chev"><use href="#i-right"/></svg></button>` : ""}${paperActions(p, "mini-link")}</div>
+        ${p.summary ? `<div class="pub-summary"><div><p>${esc(p.summary)}</p></div></div>` : ""}
       </div>`);
   }
 
@@ -220,10 +224,31 @@
   buildFilters();
   renderPubs();
 
+  // Jump to the publication list filtered by a topic (used by the research-area cards).
+  function showTopic(t) {
+    working = false;
+    statusTabs.querySelectorAll(".status-tab").forEach((b, k) => b.classList.toggle("on", k === 0));
+    topic = t;
+    search.value = "";
+    buildFilters();
+    renderPubs();
+    $("#publications").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+  }
+  document.querySelectorAll("[data-topic]").forEach((card) => {
+    card.addEventListener("click", () => showTopic(card.dataset.topic));
+    card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showTopic(card.dataset.topic); } });
+  });
+  pubList.addEventListener("click", (e) => {
+    const b = e.target.closest(".summary-toggle");
+    if (!b) return;
+    const open = b.closest(".pub").classList.toggle("open");
+    b.setAttribute("aria-expanded", open);
+  });
+
   /* ---------------- Experience, grants, skills ---------------- */
   const tl = $("#timeline");
   S.timeline.forEach((t) => {
-    tl.appendChild(el("li", "tl reveal" + (t.edu ? " edu" : ""), `<time>${esc(t.when)}</time><h3>${esc(t.role)}</h3><p class="org">${esc(t.org)}</p>${t.titles ? `<ul class="titles">${t.titles.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${t.points ? `<ul>${t.points.map((p) => `<li>${p}</li>`).join("")}</ul>` : ""}`));
+    tl.appendChild(el("li", "tl reveal from-left" + (t.edu ? " edu" : ""), `<time>${esc(t.when)}</time><h3>${esc(t.role)}</h3><p class="org">${esc(t.org)}</p>${t.titles ? `<ul class="titles">${t.titles.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}${t.points ? `<ul>${t.points.map((p) => `<li>${p}</li>`).join("")}</ul>` : ""}`));
   });
   const grants = $("#grants");
   S.grants.forEach((g) => grants.appendChild(el("li", "", `<strong>${esc(g.amount)}</strong><p>${esc(g.title)}</p><small>${esc(g.meta)}</small>`)));
@@ -340,6 +365,22 @@
     if (running && !was && !reduceMotion) requestAnimationFrame(frame);
   }).observe(cv);
   frame();
+  }
+
+  /* ---------------- Gentle parallax on the two image bands ---------------- */
+  const layers = [...document.querySelectorAll(".hero-bg, .contact-bg")];
+  if (!reduceMotion && layers.length) {
+    let ticking = false;
+    const parallax = () => {
+      layers.forEach((l) => {
+        const r = l.parentElement.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;
+        l.style.transform = `translate3d(0, ${(-r.top * 0.18).toFixed(1)}px, 0) scale(1.12)`;
+      });
+      ticking = false;
+    };
+    window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(parallax); } }, { passive: true });
+    parallax();
   }
 
   $("#year").textContent = new Date().getFullYear();

@@ -447,3 +447,77 @@ kbd { font: 500 12px var(--sans); padding: 1px 6px; border-radius: 4px; border: 
   .demo-buttons, .demo-stats { grid-column: auto; }
   .demo-stats { grid-template-columns: 1fr; }
 }
+
+/* ======================================================================
+   Section rhythm: alternate white and the CV's pale blue so each section
+   reads as its own band.
+   ====================================================================== */
+.section { border-bottom: 0; }
+#research, .talks-section, .pubs-section { background: var(--bg-soft); }
+.demo-section, #posters, #experience, .about, .pillars-section { background: #fff; }
+#research, .demo-section, .talks-section, #posters, .pubs-section, #experience { box-shadow: inset 0 1px 0 rgba(48, 95, 116, .08); }
+#research .feat { border-top-color: rgba(48, 95, 116, .12); }
+.pub:hover { background: #fff; }
+
+/* ======================================================================
+   Motion: directional reveals, staggered entrances, hero entrance.
+   ====================================================================== */
+.reveal { transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+.reveal.from-left { transform: translateX(-48px); }
+.reveal.from-right { transform: translateX(48px); }
+.reveal.zoom { transform: scale(.92) translateY(14px); }
+.reveal.rise { transform: translateY(26px); }
+.reveal.in { transform: none; }
+
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes portraitIn { from { opacity: 0; transform: scale(.85) rotate(-4deg); } to { opacity: 1; transform: none; } }
+.hero .portrait { animation: portraitIn 1s cubic-bezier(.2,.7,.2,1) both; }
+.hero-text > * { animation: heroIn .9s cubic-bezier(.2,.7,.2,1) both; }
+.hero-text > :nth-child(1) { animation-delay: .10s; }
+.hero-text > :nth-child(2) { animation-delay: .20s; }
+.hero-text > :nth-child(3) { animation-delay: .32s; }
+.hero-text > :nth-child(4) { animation-delay: .44s; }
+.hero-text > :nth-child(5) { animation-delay: .56s; }
+.hero-bg, .contact-bg { will-change: transform; transform: scale(1.12); }
+.portrait img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.portrait:hover img { transform: scale(1.04) rotate(1.5deg); }
+
+/* Figures zoom a touch inside their card on hover */
+.feat-fig { overflow: hidden; }
+.feat-fig img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.feat-fig:hover img { transform: scale(1.035); }
+
+/* Research-area cards open the filtered publication list */
+.pillar { cursor: pointer; display: flex; flex-direction: column; }
+.pillar p { flex: 1; }
+.pillar-more { display: inline-flex; align-items: center; gap: 4px; margin-top: 16px; font: 600 13px var(--sans); color: var(--band); letter-spacing: .02em; }
+.pillar-more .ic { width: 14px; height: 14px; transition: transform .25s; }
+.pillar:hover .pillar-more, .pillar:focus-visible .pillar-more { color: var(--gold); }
+.pillar:hover .pillar-more .ic { transform: translateX(4px); }
+.pillar-ic { transition: transform .35s cubic-bezier(.2,.7,.2,1), background .25s; }
+.pillar:hover .pillar-ic { transform: rotate(-8deg) scale(1.08); background: var(--gold-soft); }
+.pillar:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* Expandable summaries in the publication list */
+.summary-toggle .chev { width: 13px; height: 13px; transition: transform .3s; }
+.pub.open .summary-toggle .chev { transform: rotate(90deg); }
+.pub-summary { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.2,.7,.2,1); }
+.pub-summary > div { overflow: hidden; }
+.pub-summary p { margin: 10px 0 2px; padding: 10px 14px; border-left: 2px solid var(--gold); background: var(--bg-soft); border-radius: 0 8px 8px 0; color: #33374a; font-size: 14.5px; }
+.pub.open .pub-summary { grid-template-rows: 1fr; }
+.pubs-section .pub-summary p { background: #fff; }
+
+/* Talk list and timeline get a little life too */
+.talk-item { transition: transform .25s, border-color .2s, box-shadow .25s; }
+.talk-item:hover { transform: translateX(4px); }
+.tl h3 { transition: color .2s; }
+.tl:hover h3 { color: var(--band); }
+.tl::before { transition: transform .3s; }
+.tl:hover::before { transform: scale(1.3); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .portrait, .hero-text > * { animation: none; }
+  .reveal.from-left, .reveal.from-right, .reveal.zoom, .reveal.rise { transform: none; }
+}
+/* keep hover lifts working on elements that also use .reveal */
+.pillar.reveal.in:hover, .feat-fig.reveal.in:hover { transform: translateY(-4px); transition-delay: 0s; }
