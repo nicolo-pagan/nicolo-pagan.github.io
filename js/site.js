@@ -17,6 +17,8 @@
     const out = [];
     if (p.links.paper) out.push(`<a class="${cls}" href="${p.links.paper}" target="_blank" rel="noopener">${icon("external")}Paper</a>`);
     if (p.links.pdf) out.push(`<a class="${cls}" href="${p.links.pdf}" target="_blank" rel="noopener">${icon("file")}PDF</a>`);
+    if (p.links.code) out.push(`<a class="${cls}" href="${p.links.code}" target="_blank" rel="noopener">${icon("github")}Code</a>`);
+    if (p.links.data) out.push(`<a class="${cls}" href="${p.links.data}" target="_blank" rel="noopener">${icon("database")}Data</a>`);
     if (p.talk) out.push(`<button class="${cls}" data-open-talk="${p.talk}">${icon("slides")}Slides</button>`);
     if (p.poster) out.push(`<button class="${cls}" data-open-poster="${p.poster}">${icon("image")}Poster</button>`);
     return out.join("");
@@ -24,7 +26,7 @@
 
   /* ---------------- Featured research ---------------- */
   const featured = $("#featured");
-  S.papers.filter((p) => p.featured).forEach((p) => {
+  S.papers.filter((p) => p.featured && !p.status).forEach((p) => {
     const row = el("article", "feat reveal");
     row.innerHTML = `
       <figure class="feat-fig" data-zoom="${p.figure}" data-caption="${esc(p.caption || p.title)}">
@@ -142,49 +144,80 @@
   });
 
   /* ---------------- Publications ---------------- */
-  const filters = $("#filters"), pubList = $("#pubList"), search = $("#pubSearch");
-  let topic = "all";
-  const counts = { all: S.papers.length };
-  S.papers.forEach((p) => p.topics.forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
-  [["all", "All"], ...Object.entries(S.topics)].forEach(([key, label]) => {
-    const b = el("button", "filter" + (key === "all" ? " on" : ""), `${esc(label)}<span class="n">${counts[key] || 0}</span>`);
+  // Two tabs: published papers (grouped by year) and working papers (grouped by status).
+  const filters = $("#filters"), pubList = $("#pubList"), search = $("#pubSearch"), statusTabs = $("#statusTabs");
+  const STATUS = { review: "Under review", prep: "In preparation" };
+  const isWorking = (p) => !!p.status;
+  let topic = "all", working = false;
+
+  [[false, "Published"], [true, "Working papers"]].forEach(([w, label]) => {
+    const n = S.papers.filter((p) => isWorking(p) === w).length;
+    const b = el("button", "status-tab" + (w ? "" : " on"), `${label}<span class="n">${n}</span>`);
+    b.setAttribute("role", "tab");
     b.addEventListener("click", () => {
-      topic = key;
-      filters.querySelectorAll(".filter").forEach((f) => f.classList.toggle("on", f === b));
+      working = w;
+      statusTabs.querySelectorAll(".status-tab").forEach((t) => t.classList.toggle("on", t === b));
+      buildFilters();
       renderPubs();
     });
-    filters.appendChild(b);
+    statusTabs.appendChild(b);
   });
+
+  function buildFilters() {
+    const pool = S.papers.filter((p) => isWorking(p) === working);
+    const counts = { all: pool.length };
+    pool.forEach((p) => p.topics.forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
+    if (topic !== "all" && !counts[topic]) topic = "all";
+    filters.innerHTML = "";
+    [["all", "All"], ...Object.entries(S.topics)].forEach(([key, label]) => {
+      if (key !== "all" && !counts[key]) return;
+      const b = el("button", "filter" + (key === topic ? " on" : ""), `${esc(label)}<span class="n">${counts[key]}</span>`);
+      b.addEventListener("click", () => {
+        topic = key;
+        filters.querySelectorAll(".filter").forEach((f) => f.classList.toggle("on", f === b));
+        renderPubs();
+      });
+      filters.appendChild(b);
+    });
+  }
   search.addEventListener("input", renderPubs);
+
+  function pubItem(p) {
+    const href = p.links.paper || p.links.pdf;
+    const label = p.status ? STATUS[p.status] : p.venue;
+    const thumb = p.figure
+      ? `<div class="pub-thumb" data-zoom="${p.figure}" data-caption="${esc(p.caption || p.title)}"><img src="${p.figure}" alt="" loading="lazy"><span class="zoom-hint">${icon("expand")}</span></div>`
+      : `<div class="pub-thumb none${p.status ? " wp" : ""}"><span>${esc(label)}</span></div>`;
+    const venueTag = p.status ? `${STATUS[p.status]} · ${esc(p.venue)}` : `${esc(p.venue)} ${p.year}`;
+    return el("article", "pub", `${thumb}
+      <div>
+        <h4>${href ? `<a href="${href}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</h4>
+        <p class="authors">${boldMe(p.authors)}</p>
+        <div class="pub-tags"><span class="tag venue-tag">${venueTag}</span>${p.topics.map((t) => `<span class="tag">${esc(S.topics[t])}</span>`).join("")}${paperActions(p, "mini-link")}</div>
+      </div>`);
+  }
 
   function renderPubs() {
     const q = search.value.trim().toLowerCase();
     const list = S.papers.filter((p) =>
+      isWorking(p) === working &&
       (topic === "all" || p.topics.includes(topic)) &&
       (!q || `${p.title} ${p.venue} ${p.authors} ${p.year}`.toLowerCase().includes(q)));
     pubList.innerHTML = "";
     if (!list.length) { pubList.appendChild(el("p", "empty", "No papers match this filter.")); return; }
-    const years = [...new Set(list.map((p) => p.year))].sort((a, b) => b - a);
-    years.forEach((y) => {
-      const block = el("div", "pub-year");
-      block.appendChild(el("h3", "", y));
+    const groups = working
+      ? Object.keys(STATUS).map((k) => [STATUS[k], list.filter((p) => p.status === k)])
+      : [...new Set(list.map((p) => p.year))].sort((a, b) => b - a).map((y) => [y, list.filter((p) => p.year === y)]);
+    groups.filter(([, ps]) => ps.length).forEach(([heading, ps]) => {
+      const block = el("div", "pub-year" + (working ? " wp" : ""));
+      block.appendChild(el("h3", "", heading));
       const items = el("div", "pub-items");
-      list.filter((p) => p.year === y).forEach((p) => {
-        const href = p.links.paper || p.links.pdf;
-        const thumb = p.figure
-          ? `<div class="pub-thumb" data-zoom="${p.figure}" data-caption="${esc(p.caption || p.title)}"><img src="${p.figure}" alt="" loading="lazy"><span class="zoom-hint">${icon("expand")}</span></div>`
-          : `<div class="pub-thumb none"><span>${esc(p.venue)}</span></div>`;
-        items.appendChild(el("article", "pub", `${thumb}
-          <div>
-            <h4>${href ? `<a href="${href}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</h4>
-            <p class="authors">${boldMe(p.authors)}</p>
-            <div class="pub-tags"><span class="tag venue-tag">${esc(p.venue)} ${p.year}</span>${p.topics.map((t) => `<span class="tag">${esc(S.topics[t])}</span>`).join("")}${paperActions(p, "mini-link")}</div>
-          </div>`));
-      });
+      ps.forEach((p) => items.appendChild(pubItem(p)));
       block.appendChild(items);
       pubList.appendChild(block);
     });
   }
+  buildFilters();
   renderPubs();
 
   /* ---------------- Experience, grants, skills ---------------- */
