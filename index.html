@@ -33,6 +33,8 @@
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
     <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
     <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
     <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
     <symbol id="i-expand" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
@@ -53,6 +55,7 @@
     <a class="brand" href="#top">Nicolò Pagan</a>
     <nav>
       <ul class="nav-links">
+        <li><a href="#news">News</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#demo">Model</a></li>
@@ -76,7 +79,7 @@
       <h1>Nicolò Pagan<span class="phd">, Ph.D. ETH</span></h1>
       <p class="role">Senior Research Scientist<br><a href="https://www.ifi.uzh.ch/en/scg.html">Social Computing Group</a>, Department of Informatics, University of Zurich</p>
       <p class="lead">I evaluate and audit AI systems that make consequential decisions, from who gets hired to what we see on social media.</p>
-      <p class="lead-2">My work sits at the intersection of <strong>Responsible AI</strong> and <strong>AI safety</strong>: measuring how large language models and multi-agent systems behave, where they fail and whom they disadvantage, and designing evaluations that make them fairer and more reliable.</p>
+      <p class="lead-2">My work sits at the intersection of <strong>Responsible AI</strong>, <strong>AI evaluation</strong> and <strong>AI safety</strong>: measuring how large language models and multi-agent systems behave, where they fail and whom they disadvantage, and designing evaluations that make them fairer and more reliable.</p>
       <ul class="hero-links">
         <li><a class="btn btn-light" href="CV_Nicolo_Pagan.pdf"><svg class="ic"><use href="#i-file"/></svg>CV</a></li>
         <li><a class="btn" href="https://scholar.google.ch/citations?user=n1B47oQAAAAJ&amp;hl=en"><svg class="ic"><use href="#i-cap"/></svg>Google Scholar</a></li>
@@ -98,8 +101,8 @@
     </div>
     <div class="stat reveal rise" style="--d:0.1s">
       <svg class="ic"><use href="#i-coins"/></svg>
-      <strong>CHF <span data-count="662">662</span>k</strong>
-      <span>competitive SNSF funding as Principal Investigator</span>
+      <strong>CHF 663k</strong>
+      <span>competitive SNSF funding as PI / Lead Researcher</span>
     </div>
     <div class="stat reveal rise" style="--d:0.2s">
       <svg class="ic"><use href="#i-trophy"/></svg>
@@ -108,61 +111,55 @@
     </div>
     <div class="stat reveal rise" style="--d:0.3s">
       <svg class="ic"><use href="#i-users"/></svg>
-      <strong><span data-count="4">4</span> PhD · <span data-count="20" data-suffix="+">20+</span> MSc</strong>
+      <strong>4 PhD · 20+ MSc</strong>
       <span>students supervised across several projects</span>
     </div>
   </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
-<section class="section about" id="about">
-  <div class="wrap about-grid">
-    <div class="reveal">
-      <h2>About</h2>
+<!-- ============ NEWS ============ -->
+<section class="news-section" id="news" aria-label="Latest news">
+  <div class="wrap">
+    <div class="news-head">
+      <h2>Latest news</h2>
+      <div class="news-arrows">
+        <button class="tool" id="newsPrev" aria-label="Previous news"><svg class="ic"><use href="#i-left"/></svg></button>
+        <button class="tool" id="newsNext" aria-label="Next news"><svg class="ic"><use href="#i-right"/></svg></button>
+      </div>
     </div>
-    <div class="about-body reveal">
-      <p>I am an AI Research Scientist with a decade of experience in AI research and three years in production software engineering. My background is mathematical (<strong>game theory, dynamical systems and multi-agent strategic interaction</strong>), and I apply it to auditing economically consequential LLM decisions, from labor markets to social-media recommender systems.</p>
-      <p>I developed inverse-optimization frameworks for inferring agents' preferences, established the first formal taxonomy of feedback loops and biases in ML systems, and designed scalable LLM evaluation and auditing frameworks, fine-tuning workflows and RAG architectures across models and platforms. I was also part of the team that won a <strong>gold medal in the 2024 Kaggle ARC Challenge</strong>, one of AI's hardest benchmarks for abstract reasoning and few-shot generalization.</p>
-      <ul class="chips">
-        <li>AI Evaluation</li><li>Automated Decision-Making</li><li>Multi-Agent Systems</li><li>Algorithmic Fidelity</li><li>Algorithmic Fairness</li><li>Recommender Systems</li><li>Responsible AI</li>
-      </ul>
-      <p class="venues"><span>Published in</span>PNAS · Nature Communications · Scientific Reports · npj Climate Action · COLM · EMNLP · ACM RecSys · ACM EAAMO · IEEE CDC · L4DC · ECAF</p>
-    </div>
+    <div class="news-rail" id="newsRail" tabindex="0"></div>
   </div>
 </section>
 
-<!-- ============ WHAT I DO ============ -->
-<section class="section pillars-section">
+<!-- ============ ABOUT ============ -->
+<section class="section about" id="about">
   <div class="wrap">
-    <h2 class="reveal">Research areas</h2>
-    <div class="pillars">
-      <article class="pillar reveal rise" style="--d:0.0s" data-topic="audit" tabindex="0" role="button" aria-label="See papers on LLM decision-making evaluation">
-        <div class="pillar-ic"><svg class="ic"><use href="#i-bot"/></svg></div>
-        <h3>LLM decision-making evaluation</h3>
-        <p>Evaluation frameworks for multi-agent LLM systems deployed in labor-market and social-media recommender pipelines.</p>
-        <span class="pillar-more">See papers <svg class="ic"><use href="#i-right"/></svg></span>
-      </article>
-      <article class="pillar reveal rise" style="--d:0.1s" data-topic="llm-sim" tabindex="0" role="button" aria-label="See papers on Algorithmic fidelity">
-        <div class="pillar-ic"><svg class="ic"><use href="#i-fingerprint"/></svg></div>
-        <h3>Algorithmic fidelity</h3>
-        <p>Can LLMs stand in for people? Benchmarks that tell human from AI-generated social-media content at scale.</p>
-        <span class="pillar-more">See papers <svg class="ic"><use href="#i-right"/></svg></span>
-      </article>
-      <article class="pillar reveal rise" style="--d:0.2s" data-topic="recsys" tabindex="0" role="button" aria-label="See papers on Responsible AI and fairness">
-        <div class="pillar-ic"><svg class="ic"><use href="#i-scale"/></svg></div>
-        <h3>Responsible AI &amp; fairness</h3>
-        <p>Formalizing bias risks and feedback loops in AI-assisted decision-making and recommendation.</p>
-        <span class="pillar-more">See papers <svg class="ic"><use href="#i-right"/></svg></span>
-      </article>
-      <article class="pillar reveal rise" style="--d:0.3s" data-topic="games" tabindex="0" role="button" aria-label="See papers on Networks, games and control">
-        <div class="pillar-ic"><svg class="ic"><use href="#i-network"/></svg></div>
-        <h3>Networks, games &amp; control</h3>
-        <p>Game-theoretic and control-theoretic models of strategic behaviour on social networks.</p>
-        <span class="pillar-more">See papers <svg class="ic"><use href="#i-right"/></svg></span>
-      </article>
+    <h2 class="reveal">About</h2>
+  </div>
+  <div class="wrap about-grid">
+    <div class="about-body reveal">
+      <p>I am an AI Research Scientist with a decade of experience in AI research and three years in production software engineering. My background is mathematical (<strong>game theory, dynamical systems and multi-agent strategic interaction</strong>), and I apply it to auditing economically consequential LLM decisions, from labor markets to social-media recommender systems, including how feedback loops, strategic behaviour and multi-agent interactions can make AI systems fail at scale.</p>
+      <p>I developed inverse-optimization frameworks for inferring agents' preferences, established the first formal taxonomy of feedback loops and biases in ML systems, and designed scalable LLM evaluation and auditing frameworks, fine-tuning workflows and RAG architectures across models and platforms. I was also part of the team that won a <strong>gold medal in the 2024 Kaggle ARC Challenge</strong>, one of AI's hardest benchmarks for abstract reasoning and few-shot generalization.</p>
+      <ul class="chips">
+        <li>AI Evaluation</li><li>AI Safety</li><li>Automated Decision-Making</li><li>Multi-Agent Systems</li><li>Algorithmic Fidelity</li><li>Algorithmic Fairness</li><li>Recommender Systems</li><li>Responsible AI</li>
+      </ul>
+      <p class="venues"><span>Published in</span>PNAS · Nature Communications · Scientific Reports · npj Climate Action · COLM · EMNLP · ACM RecSys · ACM EAAMO · IEEE CDC · L4DC · ECAF</p>
     </div>
+    <figure class="system-fig reveal" id="systemFig">
+      <svg id="systemSvg" viewBox="0 0 520 470" role="img" aria-label="Illustration of a human-AI system: people and AI agents in a network around an AI system, in a feedback loop of data, prediction, decision and outcome"></svg>
+    </figure>
+  </div>
+  <div class="wrap" id="areas">
+    <h3 class="about-sub reveal">Research areas</h3>
+  </div>
+  <div class="wrap">
+    <figure class="research-map reveal" id="researchMap">
+      <svg id="mapSvg" viewBox="150 30 700 640" role="img" aria-label="Venn diagram of mathematics and control, AI and machine learning, and society and platforms, with research themes in the overlaps and Responsible AI at the centre"></svg>
+      <figcaption id="mapInfo" aria-live="polite"></figcaption>
+    </figure>
   </div>
 </section>
+
 
 <!-- ============ FEATURED RESEARCH ============ -->
 <section class="section" id="research">
@@ -260,7 +257,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="kicker">Posters</p>
-      <h2>Conference posters</h2>
+      <h2>Recent conference posters</h2>
     </div>
     <div class="posters" id="posterGrid"></div>
   </div>
@@ -274,9 +271,13 @@
       <h2>All papers</h2>
       <p class="sub">Full and up-to-date list on <a href="https://scholar.google.ch/citations?user=n1B47oQAAAAJ&amp;hl=en">Google Scholar</a>.</p>
     </div>
+    <figure class="methods-map reveal" id="methodsMap">
+      <p class="methods-title">Method → Area → Application</p>
+      <svg id="methodsSvg" viewBox="0 0 1000 400" role="img" aria-label="Methods linked to research areas and applications; select one to filter the papers below"></svg>
+    </figure>
     <div class="status-tabs reveal" id="statusTabs" role="tablist" aria-label="Publication status"></div>
     <div class="pub-controls reveal">
-      <div class="filters" id="filters" role="group" aria-label="Filter by topic"></div>
+      <div class="filters" id="filters" role="group" aria-label="Filter papers"></div>
       <label class="search"><svg class="ic"><use href="#i-search"/></svg><input id="pubSearch" type="search" placeholder="Search title, venue, author…"></label>
     </div>
     <div id="pubList" class="pub-list"></div>
@@ -341,5 +342,8 @@
 <script src="js/data.js"></script>
 <script src="js/site.js"></script>
 <script src="js/demo.js"></script>
+<script src="js/map.js"></script>
+<script src="js/methods.js"></script>
+<script src="js/system.js"></script>
 </body>
 </html>

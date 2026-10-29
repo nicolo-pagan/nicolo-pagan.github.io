@@ -47,6 +47,43 @@
     featured.appendChild(row);
   });
 
+  /* ---------------- News rail ---------------- */
+  const rail = $("#newsRail");
+  if (rail && S.news) {
+    const NEWS_ICON = { paper: "book", talk: "mic", role: "briefcase", grant: "coins" };
+    const NEWS_LABEL = { paper: "Paper", talk: "Talk", role: "New role", grant: "Grant" };
+    const fmt = (d) => {
+      const [y, m, day] = d.split("-").map(Number);
+      const mon = new Date(y, m - 1, 1).toLocaleString("en", { month: "short" });
+      return day ? `${day} ${mon} ${y}` : `${mon} ${y}`;
+    };
+    const now = new Date();
+    S.news.forEach((n, k) => {
+      const [y, m, day] = n.date.split("-").map(Number);
+      const isNew = (now - new Date(y, m - 1, day || 1)) / 864e5 < 62;
+      const action = n.talk
+        ? `<button class="news-link" data-open-talk="${n.talk}">View slides ${icon("right")}</button>`
+        : n.link ? `<a class="news-link" href="${n.link}"${n.link.startsWith("#") ? "" : ' target="_blank" rel="noopener"'}>${n.link.startsWith("#") ? "See papers" : "Read more"} ${icon("right")}</a>` : "";
+      const card = el("article", `news-card reveal rise ${n.type}`, `
+        <div class="news-top"><span class="news-ic">${icon(NEWS_ICON[n.type] || "file")}</span><span class="news-type">${NEWS_LABEL[n.type] || ""}</span>${isNew ? '<span class="news-new">New</span>' : ""}</div>
+        <time datetime="${n.date}">${fmt(n.date)}</time>
+        <p>${n.text}</p>
+        ${action}`);
+      card.style.setProperty("--d", `${Math.min(k, 4) * 0.08}s`);
+      rail.appendChild(card);
+    });
+    const page = (dir) => rail.scrollBy({ left: dir * rail.clientWidth * 0.8, behavior: reduceMotion ? "auto" : "smooth" });
+    $("#newsPrev").addEventListener("click", () => page(-1));
+    $("#newsNext").addEventListener("click", () => page(1));
+    const arrows = () => {
+      $("#newsPrev").disabled = rail.scrollLeft < 4;
+      $("#newsNext").disabled = rail.scrollLeft + rail.clientWidth > rail.scrollWidth - 4;
+    };
+    rail.addEventListener("scroll", arrows, { passive: true });
+    window.addEventListener("resize", arrows);
+    arrows();
+  }
+
   /* ---------------- Slide viewer ---------------- */
   const talkList = $("#talkList"), viewer = $("#viewer"), stage = $("#stage"), slideImg = $("#slideImg");
   const thumbs = $("#thumbs"), counter = $("#counter"), bar = $("#progressBar");
@@ -146,42 +183,65 @@
     posterGrid.appendChild(f);
   });
 
-  /* ---------------- Publications ---------------- */
-  // Two tabs: published papers (grouped by year) and working papers (grouped by status).
+  /* ---------------- Publications ----------------
+     Two tabs (published / working papers) and three filter facets:
+     Area (the Venn regions), Method and Application. The methods diagram and
+     the Venn set these facets too, through window.setFacets. */
   const filters = $("#filters"), pubList = $("#pubList"), search = $("#pubSearch"), statusTabs = $("#statusTabs");
   const STATUS = { review: "Under review", prep: "In preparation" };
+  const FACETS = [["area", "Area", S.areas], ["method", "Method", S.methods], ["app", "Application", S.apps]];
   const isWorking = (p) => !!p.status;
-  let topic = "all", working = false;
+  const has = (p, facet, key) => facet === "area" ? p.area === key : (facet === "method" ? p.methods : p.apps).includes(key);
+  let working = false;
+  const active = { area: null, method: null, app: null };
 
   [[false, "Published"], [true, "Working papers"]].forEach(([w, label]) => {
     const n = S.papers.filter((p) => isWorking(p) === w).length;
     const b = el("button", "status-tab" + (w ? "" : " on"), `${label}<span class="n">${n}</span>`);
     b.setAttribute("role", "tab");
-    b.addEventListener("click", () => {
-      working = w;
-      statusTabs.querySelectorAll(".status-tab").forEach((t) => t.classList.toggle("on", t === b));
-      buildFilters();
-      renderPubs();
-    });
+    b.addEventListener("click", () => setTab(w));
     statusTabs.appendChild(b);
   });
+  function setTab(w) {
+    working = w;
+    statusTabs.querySelectorAll(".status-tab").forEach((t, k) => t.classList.toggle("on", k === (w ? 1 : 0)));
+  }
+
+  function matches(p, except) {
+    return isWorking(p) === working &&
+      FACETS.every(([f]) => f === except || !active[f] || has(p, f, active[f]));
+  }
 
   function buildFilters() {
-    const pool = S.papers.filter((p) => isWorking(p) === working);
-    const counts = { all: pool.length };
-    pool.forEach((p) => p.topics.forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
-    if (topic !== "all" && !counts[topic]) topic = "all";
     filters.innerHTML = "";
-    [["all", "All"], ...Object.entries(S.topics)].forEach(([key, label]) => {
-      if (key !== "all" && !counts[key]) return;
-      const b = el("button", "filter" + (key === topic ? " on" : ""), `${esc(label)}<span class="n">${counts[key]}</span>`);
-      b.addEventListener("click", () => {
-        topic = key;
-        filters.querySelectorAll(".filter").forEach((f) => f.classList.toggle("on", f === b));
-        renderPubs();
+    FACETS.forEach(([facet, title, dict]) => {
+      const row = el("div", "facet-row");
+      row.appendChild(el("span", "facet-label", title));
+      const chips = el("div", "facet-chips");
+      Object.entries(dict).forEach(([key, label]) => {
+        const n = S.papers.filter((p) => matches(p, facet) && has(p, facet, key)).length;
+        if (!n && active[facet] !== key) return;
+        const b = el("button", "filter" + (active[facet] === key ? " on" : ""), `${esc(label)}<span class="n">${n}</span>`);
+        b.addEventListener("click", () => {
+          active[facet] = active[facet] === key ? null : key;
+          update();
+        });
+        chips.appendChild(b);
       });
-      filters.appendChild(b);
+      row.appendChild(chips);
+      filters.appendChild(row);
     });
+    if (FACETS.some(([f]) => active[f])) {
+      const clr = el("button", "clear-filters", `${icon("x")}Clear filters`);
+      clr.addEventListener("click", () => { FACETS.forEach(([f]) => (active[f] = null)); update(); });
+      filters.appendChild(clr);
+    }
+  }
+
+  function update() {
+    buildFilters();
+    renderPubs();
+    window.methodsSync && window.methodsSync(active);
   }
   search.addEventListener("input", renderPubs);
 
@@ -196,19 +256,17 @@
       <div>
         <h4>${href ? `<a href="${href}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</h4>
         <p class="authors">${boldMe(p.authors)}</p>
-        <div class="pub-tags"><span class="tag venue-tag">${venueTag}</span>${p.topics.map((t) => `<span class="tag">${esc(S.topics[t])}</span>`).join("")}${p.summary ? `<button class="mini-link summary-toggle" aria-expanded="false">Summary <svg class="ic chev"><use href="#i-right"/></svg></button>` : ""}${paperActions(p, "mini-link")}</div>
+        <div class="pub-tags"><span class="tag venue-tag">${venueTag}</span><span class="tag area-tag ${p.area}">${esc(S.areas[p.area])}</span>${p.summary ? `<button class="mini-link summary-toggle" aria-expanded="false">Summary <svg class="ic chev"><use href="#i-right"/></svg></button>` : ""}${paperActions(p, "mini-link")}</div>
         ${p.summary ? `<div class="pub-summary"><div><p>${esc(p.summary)}</p></div></div>` : ""}
       </div>`);
   }
 
   function renderPubs() {
     const q = search.value.trim().toLowerCase();
-    const list = S.papers.filter((p) =>
-      isWorking(p) === working &&
-      (topic === "all" || p.topics.includes(topic)) &&
+    const list = S.papers.filter((p) => matches(p) &&
       (!q || `${p.title} ${p.venue} ${p.authors} ${p.year}`.toLowerCase().includes(q)));
     pubList.innerHTML = "";
-    if (!list.length) { pubList.appendChild(el("p", "empty", "No papers match this filter.")); return; }
+    if (!list.length) { pubList.appendChild(el("p", "empty", "No papers match these filters.")); return; }
     const groups = working
       ? Object.keys(STATUS).map((k) => [STATUS[k], list.filter((p) => p.status === k)])
       : [...new Set(list.map((p) => p.year))].sort((a, b) => b - a).map((y) => [y, list.filter((p) => p.year === y)]);
@@ -221,23 +279,17 @@
       pubList.appendChild(block);
     });
   }
-  buildFilters();
-  renderPubs();
+  statusTabs.addEventListener("click", update);
 
-  // Jump to the publication list filtered by a topic (used by the research-area cards).
-  function showTopic(t) {
-    working = false;
-    statusTabs.querySelectorAll(".status-tab").forEach((b, k) => b.classList.toggle("on", k === 0));
-    topic = t;
-    search.value = "";
-    buildFilters();
-    renderPubs();
-    $("#publications").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
-  }
-  document.querySelectorAll("[data-topic]").forEach((card) => {
-    card.addEventListener("click", () => showTopic(card.dataset.topic));
-    card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showTopic(card.dataset.topic); } });
-  });
+  // Used by the Venn ("See these papers") and the methods diagram.
+  window.setFacets = (f, scroll) => {
+    setTab(false);
+    FACETS.forEach(([k]) => (active[k] = k in f ? f[k] : active[k]));
+    update();
+    if (scroll) $("#publications").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+  };
+  update();
+
   pubList.addEventListener("click", (e) => {
     const b = e.target.closest(".summary-toggle");
     if (!b) return;
@@ -316,55 +368,160 @@
     requestAnimationFrame(step);
   }
 
-  /* ---------------- Hero: drifting network ---------------- */
+  /* ---------------- Hero: a growing network ----------------
+     Nodes have a hidden quality. Every few frames a node "discovers" a nearby
+     node and follows it if it is better than everyone it already follows (as in
+     the meritocratic model). Follow links act as soft springs, so followers drift
+     toward the nodes they follow and clusters form around local hubs; a weak
+     repulsion keeps nodes apart. Nodes grow with their followers and pulse
+     gently. When growth stops, the network fades out and a new one starts. */
   const cv = $("#heroNet");
   if (cv) {
   const ctx = cv.getContext("2d");
-  let W, H, nodes = [], running = true;
+  const LINK = "218,231,236";   // CV sidebar blue-grey
+  const NODE = "217,183,122";   // soft gold
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W, H, nodes, edges, idle, alpha, fading, running = true, tick = 0;
+
+  // Keep the network out from behind the hero text and the portrait.
+  let zones = [];
+  function measureZone() {
+    const c = cv.getBoundingClientRect();
+    zones = [[".hero-text", 28], [".portrait", 22]].map(([sel, pad]) => {
+      const el = document.querySelector(sel);
+      if (!el) return null;
+      const r = el.getBoundingClientRect();
+      return { x0: r.left - c.left - pad, y0: r.top - c.top - pad, x1: r.right - c.left + pad, y1: r.bottom - c.top + pad };
+    }).filter(Boolean);
+  }
+  const zoneAt = (x, y) => zones.find((z) => x > z.x0 && x < z.x1 && y > z.y0 && y < z.y1);
+  const inZone = (x, y) => !!zoneAt(x, y);
+  function freeSpot() {
+    for (let k = 0; k < 80; k++) {
+      const x = Math.random() * W, y = Math.random() * H;
+      if (!inZone(x, y)) return [x, y];
+    }
+    return [Math.random() < 0.5 ? 20 : W - 20, Math.random() * H];
+  }
+
+  function seed() {
+    const n = Math.min(80, Math.max(30, Math.round((W * H) / 15000)));
+    nodes = Array.from({ length: n }, () => {
+      const [x, y] = freeSpot();
+      return { x, y, hx: x, hy: y, vx: 0, vy: 0,
+      q: Math.random(), best: -1, deg: 0, r: 0, phase: Math.random() * Math.PI * 2 };
+    });
+    edges = []; idle = 0; alpha = 0; fading = false;
+    // start from a partly formed network: run some growth off-screen, settle positions, no gold flashes
+    for (let k = 0; k < 70; k++) { grow(); physics(); }
+    edges.forEach((e) => (e.age = 999));
+    nodes.forEach((p) => (p.r = 1.5 + Math.sqrt(p.deg) * 2.2));
+    idle = 0;
+  }
   function resize() {
     W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const n = Math.min(55, Math.round((W * H) / 26000));
-    nodes = Array.from({ length: n }, () => ({
-      x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.14, vy: (Math.random() - 0.5) * 0.14,
-      r: Math.random() * 1.4 + 0.8
-    }));
+    measureZone();
+    seed();
   }
-  const colorAt = () => "218,231,236"; // CV sidebar blue-grey
-  function frame() {
-    ctx.clearRect(0, 0, W, H);
-    const R = 150;
-    for (let i = 0; i < nodes.length; i++) {
-      const a = nodes[i];
-      for (let j = i + 1; j < nodes.length; j++) {
-        const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
-        if (d < R) {
-          ctx.strokeStyle = `rgba(${colorAt()},${(1 - d / R) * 0.22})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-        }
+
+  function grow() {
+    // a few discoveries per call; discovery radius grows slowly so clusters merge over time
+    const reach = Math.min(W, H) * (0.22 + Math.min(edges.length / 400, 0.35));
+    let added = false;
+    for (let k = 0; k < 3; k++) {
+      const i = Math.floor(Math.random() * nodes.length), a = nodes[i];
+      const j = Math.floor(Math.random() * nodes.length), b = nodes[j];
+      if (i === j || Math.hypot(a.x - b.x, a.y - b.y) > reach) continue;
+      if (a.best < 0 || b.q > nodes[a.best].q) {
+        a.best = j; b.deg++;
+        edges.push({ a: i, b: j, age: 0 });
+        added = true;
       }
     }
-    nodes.forEach((n) => {
-      ctx.fillStyle = `rgba(${colorAt()},.7)`;
-      ctx.shadowColor = `rgba(${colorAt()},.8)`; ctx.shadowBlur = 4;
-      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
-      ctx.shadowBlur = 0;
-      n.x += n.vx; n.y += n.vy;
-      if (n.x < 0 || n.x > W) n.vx *= -1;
-      if (n.y < 0 || n.y > H) n.vy *= -1;
-    });
+    idle = added ? 0 : idle + 1;
+  }
+
+  function physics() {
+    const n = nodes.length;
+    for (let i = 0; i < n; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < n; j++) {
+        const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy + 40;
+        if (d2 > 5000) continue;
+        const f = 3 / d2;                        // weak short-range repulsion
+        a.vx += dx * f; a.vy += dy * f; b.vx -= dx * f; b.vy -= dy * f;
+      }
+    }
+    for (const e of edges) {                     // springs pull followers toward followees
+      const a = nodes[e.a], b = nodes[e.b], dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 1;
+      const f = 0.002 * (d - 38) / d;
+      a.vx += dx * f * 1.6; a.vy += dy * f * 1.6; b.vx -= dx * f * 0.4; b.vy -= dy * f * 0.4;
+    }
+    for (const p of nodes) {
+      p.vx += (p.hx - p.x) * 0.0006; p.vy += (p.hy - p.y) * 0.0006;   // stay near home, so clusters form locally
+      const zone = zoneAt(p.x, p.y);
+      if (zone) {
+        const dl = p.x - zone.x0, dr = zone.x1 - p.x, dt = p.y - zone.y0, db = zone.y1 - p.y, m = Math.min(dl, dr, dt, db);
+        if (m === dl) p.vx -= 0.6; else if (m === dr) p.vx += 0.6; else if (m === dt) p.vy -= 0.6; else p.vy += 0.6;
+      }
+      p.vx *= 0.86; p.vy *= 0.86;
+      p.x += p.vx; p.y += p.vy;
+      p.x = Math.max(8, Math.min(W - 8, p.x)); p.y = Math.max(8, Math.min(H - 8, p.y));
+      p.r += ((1.5 + Math.sqrt(p.deg) * 2.2) - p.r) * 0.08;   // size eases toward followers
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalAlpha = alpha;
+    for (const e of edges) {
+      const a = nodes[e.a], b = nodes[e.b];
+      // new links fade in softly instead of flashing
+      const grown = Math.min(1, e.age / 45);
+      const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+      ctx.strokeStyle = `rgba(${LINK},${(inZone(mx, my) ? 0.12 : 0.35) * grown})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      e.age++;
+    }
+    for (const p of nodes) {
+      const r = p.r * (1 + 0.12 * Math.sin(tick / 40 + p.phase));   // gentle pulse
+      ctx.fillStyle = `rgba(${NODE},.95)`;
+      ctx.shadowColor = `rgba(${NODE},.9)`; ctx.shadowBlur = 6 + r;
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+  }
+
+  function frame() {
+    tick++;
+    if (!fading) {
+      alpha = Math.min(1, alpha + 0.04);
+      grow();
+      if (idle > 160) fading = true;               // growth has stalled: start over
+    } else {
+      alpha -= 0.02;
+      if (alpha <= 0) seed();
+    }
+    physics();
+    draw();
     if (running && !reduceMotion) requestAnimationFrame(frame);
   }
+
   resize();
-  window.addEventListener("resize", () => { resize(); if (reduceMotion) frame(); });
+  function still() {                               // reduced motion: show a finished network, no animation
+    for (let k = 0; k < 900; k++) { grow(); physics(); }
+    edges.forEach((e) => (e.age = 999));
+    alpha = 1; draw();
+  }
+  if (reduceMotion) still();
+  window.addEventListener("resize", () => { resize(); if (reduceMotion) still(); });
   new IntersectionObserver(([e]) => {
     const was = running; running = e.isIntersecting;
     if (running && !was && !reduceMotion) requestAnimationFrame(frame);
   }).observe(cv);
-  frame();
+  if (!reduceMotion) frame();
   }
 
   /* ---------------- Gentle parallax on the two image bands ---------------- */

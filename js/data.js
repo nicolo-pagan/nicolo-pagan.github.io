@@ -1,14 +1,30 @@
 /* Site content. To add a paper/talk/poster, add an entry to the matching list.
-   Topics: "llm-sim" (LLMs & social simulation), "audit" (auditing AI systems),
-           "recsys" (recommenders & fairness), "games" (networks, games & control). */
+   Each paper has one "area" (ms | ma | as), one or more "methods" and "apps"
+   (keys defined below). Papers with a "status" are working papers. */
 
 window.SITE = {
   // Papers without a "status" are published; "review" = under review, "prep" = in preparation.
-  topics: {
-    "llm-sim": "LLMs & social simulation",
-    "audit":   "Auditing AI systems",
-    "recsys":  "Recommenders & fairness",
-    "games":   "Networks, games & control"
+  // Three facets classify every paper.
+  // area: the research areas = overlaps of the Venn diagram (Responsible AI is the umbrella at its centre).
+  areas: {
+    "ms": "Networks, games & social dynamics",
+    "ma": "Feedback loops & AI evaluation",
+    "as": "LLMs in society"
+  },
+  // method: how; app: where (the application / system studied).
+  methods: {
+    "gt": "Game theory",
+    "opt": "Optimization",
+    "ds": "Dynamical systems & control",
+    "ml": "Statistics & ML",
+    "llm": "NLP & LLMs"
+  },
+  apps: {
+    "net": "Social networks",
+    "rec": "Creators & recommenders",
+    "mis": "Opinions & misinformation",
+    "hire": "Hiring & automated decisions",
+    "soc": "Generative AI in society"
   },
 
   papers: [
@@ -19,7 +35,7 @@ window.SITE = {
       venue: "PNAS",
       title: "AI-generated language remains systematically distinguishable from human communication",
       authors: "N. Pagan, P. Törnberg, C. A. Bail, C. Barrie",
-      topics: ["llm-sim", "audit"],
+      area: "as", methods: ["llm", "ml"], apps: ["soc"],
       figure: "assets/figures/pnas.webp",
       caption: "BERT-based classification accuracy across nine open-weight LLMs on X, Bluesky and Reddit. 50% would mean indistinguishable from humans.",
       stat: { value: "9 LLMs", label: "× 5 calibration strategies, still detectable as AI" },
@@ -34,7 +50,7 @@ window.SITE = {
       venue: "COLM",
       title: "LLMs as Content Curators: A Large-Scale Audit of Recommendation Bias Across Providers and Platforms",
       authors: "N. Pagan, C. Barrie, C. A. Bail, P. Törnberg",
-      topics: ["audit", "recsys"],
+      area: "as", methods: ["llm"], apps: ["rec"],
       figure: "assets/figures/curators.webp",
       caption: "Directional bias in polarization, sentiment and toxicity by model and prompt style, averaged across Bluesky, Reddit and Twitter/X.",
       stat: { value: "540,000", label: "simulated top-10 feed selections" },
@@ -50,7 +66,7 @@ window.SITE = {
       venue: "Scientific Reports",
       title: "The Collective Turing Test: Large Language Models Can Generate Realistic Multi-User Discussions",
       authors: "A. Bouleimen, G. De Marzo, T. Kim, N. Pagan, H. Metzler, S. Giordano, A. Hannák, D. Garcia",
-      topics: ["llm-sim"],
+      area: "as", methods: ["llm", "ml"], apps: ["soc"],
       figure: "assets/figures/scirep.webp",
       caption: "Probability that participants correctly spot the AI-generated conversation, for GPT-4o and Llama 3 70B.",
       stat: { value: "39%", label: "of LLM-generated conversations were mistaken for human" },
@@ -64,7 +80,7 @@ window.SITE = {
       venue: "ECAF",
       title: "When LLMs Evaluate LLMs in Hiring: A Multi-Model Auditing Framework for Generative Preference Bias in AI-Assisted Recruitment",
       authors: "M. A. Ebling, S. Ionescu, N. Pagan",
-      topics: ["audit"],
+      area: "as", methods: ["llm", "ml"], apps: ["hire"],
       figure: "assets/figures/ecaf.webp",
       caption: "Cumulative evaluator bias per writer model, for cover-letter-only and CV + cover-letter screening.",
       stat: { value: "2 in 25", label: "qualified candidates filtered out purely by model mismatch" },
@@ -79,7 +95,7 @@ window.SITE = {
       venue: "COLM",
       title: "Illusory Truth or Mere Exposure? Model-Dependent Repetition Effects in LLM-Based Social Media Simulations",
       authors: "A. Bouleimen, N. Pagan, A. Hannák",
-      topics: ["llm-sim"],
+      area: "as", methods: ["llm", "ml"], apps: ["soc", "mis"],
       figure: "assets/figures/ite.webp",
       caption: "Two-phase experimental design embedding repetition inside a realistic news feed.",
       stat: { value: "336,000", label: "ratings across four LLMs" },
@@ -92,7 +108,7 @@ window.SITE = {
       venue: "EMNLP",
       title: "Prompt Revision as a Source of Cultural Bias in Text-to-Image Systems",
       authors: "A. Urman, E. Lichtenegger, S. Jaoua, A. Bouleimen, R. Forsberg, C. Hertweck, S. Ionescu, N. Pagan, A. Hannák, J. Baumann",
-      topics: ["audit"],
+      area: "as", methods: ["llm"], apps: ["soc"],
       figure: "assets/figures/emnlp.webp",
       caption: "Cultural flattening: term prevalence vs. term spread by context and model.",
       stat: { value: "8,960", label: "prompts across 15 languages" },
@@ -105,7 +121,7 @@ window.SITE = {
       venue: "L4DC",
       title: "Misinformation Mitigation over Social Networks: a Control Approach",
       authors: "N. Pagan, A. Philippou, G. De Pasquale",
-      topics: ["recsys", "games"],
+      area: "ma", methods: ["ds", "opt", "llm"], apps: ["mis"],
       figure: "assets/figures/l4dc.webp",
       caption: "Misinformation, engagement and sentiment shift vs. penalty weight, and the engagement–misinformation Pareto frontier.",
       stat: { value: "−76%", label: "misinformation propagation" },
@@ -118,7 +134,7 @@ window.SITE = {
       venue: "npj Climate Action",
       title: "Generative AI for climate governance and acceptability-constrained policy design",
       authors: "A. Manivannan, …, N. Pagan, …, V. Spaiser",
-      topics: ["llm-sim"],
+      area: "as", methods: ["llm"], apps: ["soc"],
       figure: "assets/figures/npj.webp",
       caption: "The ACCPD framework: draft policies are tested through LLMs, generative agent-based models and a physical world model before redesign.",
       links: { paper: "https://doi.org/10.1038/s44168-026-00362-6" }
@@ -129,7 +145,7 @@ window.SITE = {
       venue: "RecSys Workshop",
       title: "Ordered Pairwise Comparison: Structured Exploration for Improving Provider Fairness in Recommender Systems",
       authors: "S. Jaoua, N. Pagan, S. Ionescu",
-      topics: ["recsys"],
+      area: "ms", methods: ["ml"], apps: ["rec"],
       figure: "assets/figures/recsysws.webp",
       caption: "Ordered pairwise comparison: an exploration phase that shows each group pairs of creators before any recommendation algorithm takes over.",
       links: { paper: "https://arxiv.org/abs/2510.20698" }
@@ -140,7 +156,7 @@ window.SITE = {
       venue: "COLM",
       title: "Can LLMs Imitate Social Media Dialogue? Techniques for Calibration and BERT-based Turing-Test",
       authors: "N. Pagan, P. Törnberg, C. A. Bail, A. Hannák, C. Barrie",
-      topics: ["llm-sim"],
+      area: "as", methods: ["llm", "ml"], apps: ["soc"],
       figure: "assets/figures/colm2025.webp",
       caption: "BERT classification accuracy of the best-performing calibrated configuration per model and dataset.",
       links: { paper: "https://openreview.net/forum?id=mng6EQy2tj" },
@@ -153,7 +169,7 @@ window.SITE = {
       venue: "EAAMO",
       title: "A Classification of Feedback Loops and Their Relation to Biases in Automated Decision-Making Systems",
       authors: "N. Pagan*, J. Baumann*, E. Elokda, G. De Pasquale, S. Bolognani, A. Hannák",
-      topics: ["audit", "games"],
+      area: "ma", methods: ["ds"], apps: ["hire"],
       figure: "assets/figures/eaamo.webp",
       caption: "The ML-based decision-making pipeline as a closed-loop system, with the five feedback loops it can create.",
       stat: { value: "5", label: "types of feedback loop, formally classified" },
@@ -167,7 +183,7 @@ window.SITE = {
       venue: "RecSys",
       title: "Group Fairness for Content Creators: the Role of Human and Algorithmic Biases under Popularity-based Recommendations",
       authors: "S. Ionescu, A. Hannák, N. Pagan",
-      topics: ["recsys"],
+      area: "ms", methods: ["ml"], apps: ["rec"],
       figure: "assets/figures/recsys.webp",
       caption: "Unfairness for content creators under different visibility-allocation and seeker biases.",
       summary: "An agent-based model of the creator economy: viewer homophily alone creates inequality, but even small additional biases in the platform's visibility allocation are more harmful.",
@@ -179,7 +195,7 @@ window.SITE = {
       venue: "IEEE CDC",
       title: "The Impact of Recommendation Systems on Opinion Dynamics: Microscopic versus Macroscopic Effects",
       authors: "N. Lanzetti, F. Dörfler, N. Pagan",
-      topics: ["recsys", "games"],
+      area: "ms", methods: ["ds"], apps: ["rec", "mis"],
       figure: "assets/figures/cdc.webp",
       caption: "Microscopic vs. macroscopic opinion shift as a function of recommendation parameters.",
       summary: "Even when a population's opinion distribution looks unchanged, recommender systems can shift individual users' opinions substantially, and surveys can miss the effect entirely.",
@@ -191,7 +207,7 @@ window.SITE = {
       venue: "Applied Network Science",
       title: "The Role of Luck in the Success of Social Media Influencers",
       authors: "S. Ionescu, A. Hannák, N. Pagan",
-      topics: ["recsys"],
+      area: "ms", methods: ["ml"], apps: ["rec"],
       figure: "assets/figures/luck.webp",
       caption: "The two-phase network formation process: recommendation, then the seeker's decision.",
       summary: "Exploring only popular creators converges fast but is often unfair; creators and followers prefer different algorithm designs, and platforms have little incentive to fix it.",
@@ -203,7 +219,7 @@ window.SITE = {
       venue: "IFAC World Congress",
       title: "Data-driven behaviour estimation in parametric games",
       authors: "A. M. Maddux, N. Pagan, G. Belgioioso, F. Dörfler",
-      topics: ["games"],
+      area: "ms", methods: ["gt", "opt"], apps: ["net"],
       figure: "assets/figures/ifac.webp",
       caption: "Estimated beliefs of Coca-Cola and Pepsi in a market-share game, inferred from historical advertising data.",
       links: { paper: "https://doi.org/10.1016/j.ifacol.2023.10.220", pdf: "https://arxiv.org/pdf/2202.01229", code: "https://github.com/amaddux9/Data-Driven-Behaviour-Estimation" }
@@ -214,7 +230,7 @@ window.SITE = {
       venue: "Complex Networks",
       title: "Dynamics of toxic behavior in the Covid-19 vaccination debate",
       authors: "A. Bouleimen, N. Pagan, S. Cresci, A. Urman, S. Giordano",
-      topics: ["recsys"],
+      area: "ms", methods: ["ml"], apps: ["mis"],
       figure: "assets/figures/cn2023.webp",
       caption: "Retweet network of the Italian Covid-19 vaccination debate: the Provax (blue) and Novax (orange) communities.",
       links: { paper: "https://doi.org/10.1007/978-3-031-53503-1_26", pdf: "https://arxiv.org/pdf/2311.06520" }
@@ -225,7 +241,7 @@ window.SITE = {
       venue: "Complex Networks",
       title: "Individual Fairness for Social Media Influencers",
       authors: "S. Ionescu, N. Pagan, A. Hannák",
-      topics: ["recsys"],
+      area: "ms", methods: ["ml"], apps: ["rec"],
       figure: "assets/figures/cna.webp",
       caption: "Probability of ex-post fairness for each content creator under three recommender strategies.",
       summary: "Non-exploratory recommendations converge quickly but usually lead to unfair outcomes; even with exploration, fairness is only guaranteed for the very best (and worst) creators.",
@@ -238,7 +254,7 @@ window.SITE = {
       venue: "Nature Communications",
       title: "A meritocratic network formation model for the rise of social media influencers",
       authors: "N. Pagan, W. Mei, C. Li, F. Dörfler",
-      topics: ["recsys", "games"],
+      area: "ms", methods: ["gt"], apps: ["rec", "net"],
       figure: "assets/figures/nc21.webp",
       caption: "Theoretical in-degree vs. rank (log–log): at equilibrium the expected number of followers follows Zipf's law, E[d] = N/i.",
       stat: { value: "Zipf", label: "law emerges from quality-driven linking" },
@@ -253,7 +269,7 @@ window.SITE = {
       venue: "Nature Communications",
       title: "Game theoretical inference of human behavior in social networks",
       authors: "N. Pagan, F. Dörfler",
-      topics: ["games"],
+      area: "ms", methods: ["gt", "opt"], apps: ["net"],
       figure: "assets/figures/nc19.webp",
       caption: "Marriage (red) and business (blue) ties among 15 Florentine families, with the Medici at the centre.",
       stat: { value: "Top 50", label: "most-read Physics article in Nature Communications" },
@@ -268,7 +284,7 @@ window.SITE = {
       venue: "PNAS",
       title: "Political Sorting Can Drive AI Models Apart Through User Feedback",
       authors: "P. Törnberg, M. Heseltine, N. Pagan, C. A. Bail, M. Schimmel, C. Barrie",
-      topics: ["llm-sim", "audit"],
+      area: "as", methods: ["llm"], apps: ["soc"],
       links: {}
     },
     {
@@ -278,7 +294,7 @@ window.SITE = {
       venue: "ICLR",
       title: "Risk-Seeking Strategic Robustness in Games: A Substitutes-Complements Rule, and Where It Breaks",
       authors: "N. Pagan",
-      topics: ["games"],
+      area: "ma", methods: ["gt"], apps: [],
       links: {}
     },
     {
@@ -288,7 +304,7 @@ window.SITE = {
       venue: "ICWSM",
       title: "Perceived Trust and Transparency in AI-Altered vs. Human-Written LinkedIn Posts",
       authors: "T. C. Joos, A. Bouleimen, A. Hannák, N. Pagan",
-      topics: ["llm-sim"],
+      area: "as", methods: ["ml"], apps: ["soc"],
       links: {}
     },
     {
@@ -298,7 +314,7 @@ window.SITE = {
       venue: "Nature Machine Intelligence",
       title: "AI evaluators favor job applications written by certain AI models, independent of candidate quality",
       authors: "N. Pagan, M. A. Ebling, S. Ionescu, A. Hannák",
-      topics: ["audit"],
+      area: "as", methods: ["llm"], apps: ["hire"],
       links: {}
     },
     {
@@ -308,7 +324,7 @@ window.SITE = {
       venue: "Science Advances",
       title: "LLM Recommenders Produce Demographic Inequality Through Content Preferences",
       authors: "N. Pagan, P. Törnberg, C. A. Bail, C. Barrie",
-      topics: ["audit", "recsys"],
+      area: "as", methods: ["llm"], apps: ["rec"],
       links: { code: "https://github.com/paganick/llm-recsys-twitter-yougov-PNAS" }
     },
     {
@@ -318,9 +334,23 @@ window.SITE = {
       venue: "Artificial Intelligence Review",
       title: "Literature Review on Social Machine Behavior",
       authors: "T. Nae, N. Pagan",
-      topics: ["llm-sim"],
+      area: "as", methods: ["llm"], apps: ["soc"],
       links: {}
     }
+  ],
+
+  // Newest first. "date" is YYYY-MM or YYYY-MM-DD; items from the last ~2 months get a "New" badge.
+  // type: paper | talk | role | grant. Use "link" for an external URL or "talk" to open slides on the page.
+  news: [
+    { date: "2026-10-22", type: "talk", text: "Presented our PNAS work on the authenticity gap between AI-generated and human language at the DemDialogue panel, GenAI & Social Science Conference, New York.", talk: "2026-genai-nyc-ai-language-distinguishable" },
+    { date: "2026-10", type: "paper", text: "Out in PNAS: <em>AI-generated language remains systematically distinguishable from human communication</em>.", link: "https://doi.org/10.1073/pnas.2531748123" },
+    { date: "2026-10", type: "paper", text: "Two papers at COLM 2026: an audit of LLMs as content curators, and repetition effects in LLM-based social media simulations.", link: "#publications" },
+    { date: "2026-09", type: "role", text: "Started as Senior Research Scientist in the Social Computing Group, University of Zurich." },
+    { date: "2026-09-02", type: "talk", text: "Two talks at ECAF 2026 in Ghent: recommendation bias in LLM-based curation, and generative preference bias in AI-assisted hiring.", talk: "2026-ecaf-llm-hiring" },
+    { date: "2026-08", type: "paper", text: "Accepted at EMNLP 2026: prompt revision as a hidden source of cultural bias in text-to-image systems.", link: "https://aclanthology.org/2026.emnlp-main.1599/" },
+    { date: "2026-07", type: "paper", text: "Accepted in Scientific Reports: <em>The Collective Turing Test</em>, LLMs can generate realistic multi-user discussions.", link: "https://doi.org/10.1038/s41598-026-62286-9" },
+    { date: "2026-03", type: "paper", text: "Published in npj Climate Action: generative AI for climate governance and acceptability-constrained policy design.", link: "https://doi.org/10.1038/s44168-026-00362-6" },
+    { date: "2025-01", type: "grant", text: "Awarded an SNSF grant (CHF 230,552) to promote democratic dialogue on social media using generative AI." }
   ],
 
   talks: [
