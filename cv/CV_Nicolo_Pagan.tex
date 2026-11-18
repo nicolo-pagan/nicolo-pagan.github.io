@@ -1,0 +1,343 @@
+% !TEX TS-program = LuaLaTeX
+\documentclass[10pt, a4paper]{article}
+
+% ── Page geometry ──────────────────────────────────────────────────────────────
+\usepackage[top=0pt, bottom=10pt, left=14pt, right=18pt]{geometry}
+
+% ── Fonts ──────────────────────────────────────────────────────────────────────
+\usepackage[sfdefault, light]{roboto}
+\usepackage{fontawesome5}
+
+% ── Packages ───────────────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{graphicx}
+\usepackage{paracol}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{multicol}
+
+\hypersetup{
+    colorlinks=true,
+    linkbordercolor=MidnightBlue,
+    pdfborderstyle={/S/U/W 1},
+    allcolors=MidnightBlue
+}
+
+% ── Colours ────────────────────────────────────────────────────────────────────
+\definecolor{headerBg}{HTML}{27586E}
+\definecolor{sectionColor}{HTML}{27586E}
+\definecolor{rightColBg}{HTML}{DAE7EC}
+
+% ── Gradient strength: change this number (0 = flat, 100 = very strong) ───────
+\newcommand{\gradientstrength}{85}
+
+% Automatically compute the lighter right-side color by mixing with white
+\colorlet{headerBgLight}{headerBg!\gradientstrength!white}
+
+% ── Own name in references (medium)────────────────────────────────────────────
+\newcommand{\me}[1]{\robotoMedium{#1}}
+
+% ── Remove page numbers ───────────────────────────────────────────────────────
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+% ── Section heading (left column — coloured rule) ─────────────────────────────
+\newcommand{\cvsection}[1]{%
+    \vspace{10pt}%
+    {\large\color{sectionColor}\robotoMedium{#1}}%
+    \par\vspace{-5pt}\noindent{\color{sectionColor}\rule{\linewidth}{0.5pt}}%
+    \vspace{0pt}%
+}
+
+% ── Section heading (right column — grey rule) ────────────────────────────────
+\newcommand{\cvsectionright}[1]{%
+    \vspace{10pt}%
+    {\large\color{sectionColor}\robotoMedium{#1}}%
+    \par\vspace{-5pt}\noindent{\color{gray}\rule{\linewidth}{0.3pt}}%
+    \vspace{0pt}%
+}
+
+% ── Experience entry ──────────────────────────────────────────────────────────
+\newcommand{\cventry}[3]{%
+    % #1 = title + dates line, #2 = org line, #3 = bullet block
+    \vspace{2pt}%
+    #1\par\vspace{0pt}%
+    {\small \robotoLight{#2}}\par\vspace{2pt}%
+    #3%
+}
+
+% ── Compact role breakdown under an entry (one line, grey, scriptsize) ────────
+\newcommand{\cvroles}[1]{%
+    \vspace{-5pt}{\scriptsize\color{gray}\robotoLight{#1}}\par\vspace{1pt}%
+}
+
+\newcommand{\cvsep}{%
+    \par\vspace{-1pt}\noindent{\color{lightgray}\rule{\linewidth}{0.3pt}}\vspace{0pt}%
+}
+
+\begin{document}
+
+% ══════════════════════════════════════════════════════════════════════════════
+% BACKGROUNDS — header (metallic gradient) + right column (light teal)
+% ══════════════════════════════════════════════════════════════════════════════
+\noindent
+\begin{tikzpicture}[remember picture, overlay]
+    % Horizontal gradient: base color left, lighter right
+    \shade[left color=headerBg, right color=headerBgLight]
+        ([yshift=2pt]current page.north west) rectangle
+        ([yshift=-210pt]current page.north east);
+    % Light teal right-column background (below header to page bottom)
+    \fill[rightColBg]
+        ([xshift=0.615\paperwidth, yshift=-210pt]current page.north west)
+        rectangle (current page.south east);
+\end{tikzpicture}
+
+% ══════════════════════════════════════════════════════════════════════════════
+% HEADER
+% ══════════════════════════════════════════════════════════════════════════════
+\noindent
+\begin{minipage}[t][180pt][t]{\textwidth}
+    \vspace{-10pt}
+    \begin{minipage}[b]{0.615\textwidth}
+        \color{white}
+        {\LARGE \robotoMedium{NICOL\`{O} PAGAN, Ph.D. ETH}}\\[3pt]
+        {\robotoMedium{AI Research Scientist}}
+
+        \vspace{6pt}
+        {\small \robotoLight{AI Research Scientist with a decade of experience in AI research, and three years in production software engineering. Mathematical background in game theory, dynamical systems, and multi-agent strategic interaction, applied to auditing economically consequential LLM decisions, from labor markets to social media recommender systems. Developed inverse optimization frameworks for agent preference inference; established the first formal taxonomy of feedback loops and biases in ML systems; designed scalable LLM evaluation and auditing frameworks, fine-tuning workflows, and RAG architectures across multiple models and platforms. Won a gold medal in the 2024 Kaggle ARC Challenge, one of AI's hardest benchmarks for abstract reasoning and few-shot generalization. Secured CHF 662,000 in competitive SNSF funding as Principal Investigator.}}
+
+        \vspace{5pt}
+        {\small \robotoMedium{Research Focus}: \robotoLight{AI Evaluation | Automated Decision-Making | Multi-Agent Systems | Algorithmic Fidelity | %Game Theory |
+        Algorithmic Fairness | Recommender Systems | Responsible AI}}
+    \end{minipage}%
+    \hfill%
+    \begin{minipage}[b]{0.34\textwidth}
+        \raggedleft
+        \vspace{2pt}
+        \begin{tikzpicture}
+            \clip (0,0) circle (1.25cm);
+            \node at (0,0) {\includegraphics[width=2.5cm]{cv_picture.png}};
+        \end{tikzpicture}
+
+        \vspace{6pt}
+        {\small
+        \textcolor{white}{20.12.1988, Swiss, Italian}
+        \textcolor{white}{\hspace{2pt}\faUser}\\[2pt]
+        \href{https://www.linkedin.com/in/nicolo-pagan-55281036/}{\textcolor{white}{\robotoLight{LinkedIn}}}
+        \textcolor{white}{\hspace{2pt}\faLinkedin}\\[2pt]
+        \href{https://scholar.google.ch/citations?user=n1B47oQAAAAJ&hl=en}{\textcolor{white}{\robotoLight{Google Scholar}}}
+        \textcolor{white}{\hspace{2pt}\faGraduationCap}\\[2pt]
+        \href{https://github.com/paganick}{\textcolor{white}{\robotoLight{GitHub}}}
+        \textcolor{white}{\hspace{2pt}\faGithub}\\[2pt]
+        \href{mailto:nicolo.pagan@outlook.com}{\textcolor{white}{nicolo.pagan@outlook.com}}
+        \textcolor{white}{\hspace{2pt}\faEnvelope}\\[2pt]
+        \href{https://nicolo-pagan.github.io/}{\textcolor{white}{\robotoLight{nicolo-pagan.github.io}}}
+        \textcolor{white}{\hspace{2pt}\faGlobe}
+        }
+    \end{minipage}%
+    \hspace{0pt}
+\end{minipage}
+
+% ══════════════════════════════════════════════════════════════════════════════
+% BODY — two columns
+% ══════════════════════════════════════════════════════════════════════════════
+\columnratio{0.63}
+\setlength{\columnsep}{20pt}
+\begin{paracol}{2}
+
+\cvsection{WORK EXPERIENCE}
+
+\cventry{{\large\robotoMedium{Senior Research Scientist}} \hfill
+{\small Jan 2025 - present}
+%\\ {\small Sep 2026 - present}\\
+%{\robotoMedium{Post-doctoral Researcher}}
+%\hfill {\small Jan 2025 - Aug 2026}
+}
+{University of Zurich | Social Computing Group | Zurich (CH)}{
+\cvroles{Post-Doctoral Researcher (Jan 2025--Aug 2026) $\cdot$ Senior Research Scientist (Sep 2026--present)}
+{\small \robotoMedium{LLM Decision-Making Evaluation}: Building evaluation frameworks for multi-agent LLM systems deployed in labor-market and social media recommender pipelines}\\
+{\small \robotoMedium{Algorithmic Fidelity}: Designed multi-platform benchmarking suite combining BERT classification, cosine similarity, and NLP feature extraction to classify human- vs LLM-generated social media content at scale (\emph{\robotoMedium{PNAS}, 2026})}\\
+{\small \robotoMedium{Responsible AI}: Formalizing bias risks in AI-assisted decision-making, in particular in the context of social media recommendation systems}\\
+{\small \robotoMedium{Research Leadership}: Supervising 4 PhD students and more than 20 Master's students across several projects}
+}
+
+\cvsep
+
+\cventry{{\large\robotoMedium{AI Research Scientist}} \hfill {\small Mar 2024 - Sep 2024}}{Giotto.AI | Lausanne (CH), remote}{
+{\small \robotoMedium{ARC Challenge (AGI) Evaluation Pipeline}: Built advanced classifiers for ARC task types to reduce the solution search space; designed a test-time-training and candidate-filtering pipeline for abstract reasoning; team won gold medal in 2024 Kaggle ARC Prize}
+}
+
+\cvsep
+
+% FIX: removed the stray "| CH" from the org line, and added a one-line role
+% breakdown (lecturer during PhD, NCCR fellowship).
+\cventry{{\large\robotoMedium{Post-Doctoral Researcher \& Lecturer}} \hfill {\small Feb 2021 - Mar 2024}}{University of Zurich | Social Computing Group | Zurich (CH)}{
+\cvroles{Lecturer, Social Computing (Feb--Apr 2021) $\cdot$ NCCR Automation Fellow, own SNSF project (Mar 2022--Mar 2024)}
+{\small \robotoMedium{AI Evaluation}: Developed first systematic taxonomy of feedback loop types in ML systems and their formal relation to algorithmic biases, with implications across labor-market decision-making, content moderation, and credit scoring}\\
+{\small \robotoMedium{Fairness Auditing}: Led 216'000 CHF SNSF project on algorithmic fairness in recommender systems and resource allocation problems (\emph{\robotoMedium{Nature Communications}, 2021})}\\
+{\small \robotoMedium{Algorithmic Fidelity}: Pioneered LLM-based approaches for modeling and auditing human behavior in social systems}
+}
+
+\cvsep
+
+\cventry{{\large\robotoMedium{Doctoral Researcher}} \hfill {\small Jan 2016 - Apr 2021}}{ETH Zurich | Automatic Control Lab | Zurich (CH)}{
+{\small \robotoMedium{Inverse Optimization}: Developed game-theoretic framework to infer agent objectives from large-scale behavioral observations; proved convexity guarantees enabling tractable recovery at network scale (\emph{\robotoMedium{Nature Communications}, 2019})}\\
+{\small \robotoMedium{Multi-agent Systems}: Mathematical modeling of strategic interaction dynamics in directed social networks}
+}
+
+\cvsep
+
+\cventry{{\large\robotoMedium{Software Engineer and Research Consultant}} \hfill {\small Sep 2012 - Dec 2015}}{Ascomp AG | Zurich (CH)}{
+{\small \robotoMedium{R\&D}: Development of production-grade Computational Fluid-dynamics (CFD) solutions}\\
+{\small \robotoMedium{DevOps}: Full-stack software development, HPC pipelines, unit testing, CI/CD}
+}
+
+\switchcolumn
+
+\cvsectionright{KEY ACHIEVEMENTS}
+
+\vspace{3pt}
+\robotoMedium{ARC AGI Challenge Gold Medal (2024)}
+
+\vspace{3pt}
+\robotoMedium{SNSF Grants}: 662'000 CHF in competitive \\funding for Responsible AI research
+
+\vspace{3pt}
+\robotoMedium{Nature Communications}: Top 50 most-read \\Physics article (2019)
+
+\cvsectionright{EDUCATION}
+
+\vspace{4pt}
+{\robotoMedium{Ph.D., ETH Zurich}} \hfill {\small Jan 2016 - Apr 2021}\\[0pt]
+{\small\robotoLight{Automatic Control Laboratory}}
+
+\vspace{4pt}
+{\robotoMedium{M.Sc., EPF Lausanne}} \hfill {\small Sep 2011 - Apr 2013}\\[0pt]
+{\small\robotoLight{Computational Science and Engineering}}
+
+\vspace{4pt}
+{\robotoMedium{B.Sc., Politecnico di Torino}} \hfill {\small Sep 2007 - Oct 2010}\\[0pt]
+{\small\robotoLight{Mathematical Engineering, cum Laude}}
+
+\cvsectionright{SKILLS}
+
+{\small \robotoMedium{Languages \& Frameworks}: Python | C/C++ | PyTorch | Hugging Face | Transformers | scikit-learn\\
+\robotoMedium{LLM Engineering}: Fine-tuning (LoRA, PEFT) | Evaluation pipelines | Automated decision-making audits | Agentic systems | RAG\\
+\robotoMedium{Software Engineering}: HPC | CI/CD | Git | Docker\\
+\robotoMedium{Methods}: Optimization | Control Theory | Game Theory | Statistical Inference | NLP}
+
+\cvsectionright{SELECTED PUBLICATIONS}
+
+{\scriptsize \me{Pagan N.}, T\"{o}rnberg P., Bail C.A., and Barrie C., \href{https://doi.org/10.1073/pnas.2531748123}{AI-Generated Language Remains Systematically Distinguishable from Human Communication}, {\emph{\robotoMedium{PNAS} (2026)}}}
+
+{\scriptsize \me{Pagan N.}, Barrie C., Bail C.A., and Törnberg P., \href{https://openreview.net/pdf?id=ciOsHGa109}{LLMs as Content Curators: A Large-Scale Audit of Recommendation Bias Across Providers and Platforms}, {\emph{\robotoMedium{COLM} (2026)}}}
+
+{\scriptsize Bouleimen A., \me{Pagan N.}, and Hannák A., \href{https://openreview.net/pdf?id=S3vYJrl2Hn}{Illusory Truth or Mere Exposure? Model-Dependent Repetition Effects in LLM-Based Social Media Simulations}, {\emph{\robotoMedium{COLM} (2026)}}}
+
+{\scriptsize \me{Pagan N.}, Baumann J., Elokda E., De Pasquale G., Bolognani S., and Hannák A., \href{https://doi.org/10.1145/3617694.3623227}{A Classification of Feedback Loops and Their Relation to Biases in Automated Decision-Making Systems}, {\emph{\robotoMedium{EAAMO} (2023)}}}
+
+{\scriptsize \me{Pagan N.}, Mei W., Li C., and Dörfler F., \href{https://doi.org/10.1038/s41467-021-27089-8}{A meritocratic network formation model for the rise of social media influencers}, {\emph{\robotoMedium{Nature Communications} (2021)}}}
+
+{\scriptsize \me{Pagan N.} and Dörfler F., \href{https://doi.org/10.1038/s41467-019-13148-8}{Game theoretical inference of human behavior in social networks}, {\emph{\robotoMedium{Nature Communications} (2019)}}}
+
+\end{paracol}
+
+% ══════════════════════════════════════════════════════════════════════════════
+% PAGE 2 — Full publication list and remaining achievements
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\newgeometry{top=40pt, bottom=40pt, left=50pt, right=50pt}
+
+\cvsection{FULL LIST OF PUBLICATIONS}
+
+\footnotesize
+\setlength{\itemsep}{0pt}
+
+\noindent\robotoRegular{Journal Articles}
+\robotoLight{
+\begin{enumerate}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item[{[J6]}] \me{Pagan, N.}, T\"{o}rnberg, P., Bail, C.A., and Barrie, C. ``AI-Generated Language Remains Systematically Distinguishable from Human Communication.'' \emph{\robotoMedium{PNAS}} 123, e2531748123 (2026). \href{https://doi.org/10.1073/pnas.2531748123}{doi: 10.1073/pnas.2531748123}.
+\item[{[J5]}] Bouleimen, A., De Marzo, G., Kim, T., \me{Pagan, N.}, Metzler, H., Giordano, S., Hann\'{a}k, A., and Garcia, D. ``The Collective Turing Test: Large Language Models Can Generate Realistic Multi-User Discussions.'' \emph{\robotoMedium{Scientific Reports}} (2026). \href{https://www.nature.com/articles/s41598-026-62286-9}{doi: 10.1038/s41598-026-62286-9}.
+\item[{[J4]}] Manivannan, A. et al., \me{Pagan, N.}, et al. ``Generative AI for climate governance and acceptability-constrained policy design.'' \emph{\robotoMedium{npj Climate Action}} 5(1), 37 (2026). \href{https://doi.org/10.1038/s44168-026-00362-6}{doi: 10.1038/s44168-026-00362-6}.
+\item[{[J3]}] Ionescu, S., Hann\'{a}k, A., and \me{Pagan, N.} ``The role of luck in the success of social media influencers.'' \emph{\robotoMedium{Applied Network Science}} 8(1), 46 (2023). \href{https://doi.org/10.1007/s41109-023-00573-4}{doi: 10.1007/s41109-023-00573-4}.
+\item[{[J2]}] \me{Pagan, N.}, Mei, W., Li, C., and D\"{o}rfler, F. ``A meritocratic network formation model for the rise of social media influencers.'' \emph{\robotoMedium{Nature Communications}} 12, 6865 (2021). \href{https://doi.org/10.1038/s41467-021-27089-8}{doi: 10.1038/s41467-021-27089-8}.
+\item[{[J1]}] \me{Pagan, N.} and D\"{o}rfler, F. ``Game theoretical inference of human behavior in social networks.'' \emph{\robotoMedium{Nature Communications}} 10, 5507 (2019). \href{https://doi.org/10.1038/s41467-019-13148-8}{doi: 10.1038/s41467-019-13148-8}.
+\end{enumerate}
+}
+
+\vspace{5pt}
+\noindent\robotoRegular{Journal Articles --- Under Review}
+\robotoLight{
+\begin{enumerate}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item[{[J7]}] T\"{o}rnberg, P., Heseltine, M., \me{Pagan, N.}, Bail, C.A., Schimmel, M., and Barrie, C. ``Political Sorting Can Drive AI Models Apart Through User Feedback.'' \emph{Under review, \robotoMedium{PNAS}} (2026).
+\end{enumerate}
+}
+
+\vspace{5pt}
+\noindent\robotoRegular{Journal Articles --- In Preparation}
+\robotoLight{
+\begin{enumerate}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item[{[J10]}] \me{Pagan, N.}, Ebling, M.A., Ionescu, S., and Hann\'{a}k, A. ``AI evaluators favor job applications written by certain AI models, independent of candidate quality.'' \emph{In preparation for \robotoMedium{Nature Machine Intelligence}} (2026).
+\item[{[J9]}] Nae, T. and \me{Pagan, N.} ``Literature Review on Social Machine Behavior.'' \emph{In preparation for \robotoMedium{Artificial Intelligence Review}} (2026).
+\item[{[J8]}] \me{Pagan, N.}, T\"{o}rnberg, P., Bail, C.A., and Barrie, C. ``LLM Recommenders Produce Demographic Inequality Through Content Preferences.'' \emph{In preparation for \robotoMedium{Science Advances}} (2026).
+\end{enumerate}
+}
+
+\vspace{5pt}
+\noindent\robotoRegular{Conference Articles}
+\robotoLight{
+\begin{enumerate}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item[{[C12]}] Jaoua, S., \me{Pagan, N.}, and Ionescu, S. ``Ordered Pairwise Comparison: Structured Exploration for Improving Provider Fairness in Recommender Systems.'' \emph{\robotoMedium{Beyond Workshop @ RecSys}} (2026).
+\item[{[C11]}] \me{Pagan, N.}, Barrie, C., Bail, C.A., and T\"{o}rnberg, P. ``\href{https://openreview.net/pdf?id=ciOsHGa109}{LLMs as Content Curators: A Large-Scale Audit of Recommendation Bias Across Providers and Platforms}.'' \emph{\robotoMedium{COLM}} (2026).
+\item[{[C10]}] Bouleimen, A., \me{Pagan, N.}, and Hann\'{a}k, A. ``\href{https://openreview.net/pdf?id=S3vYJrl2Hn}{Illusory Truth or Mere Exposure? Model-Dependent Repetition Effects in LLM-Based Social Media Simulations}.'' \emph{\robotoMedium{COLM}} (2026).
+\item[{[C9]}] Urman, A., Lichtenegger, E., Jaoua, S., Bouleimen, A., Forsberg, R., Hertweck, C., Ionescu, S., \me{Pagan, N.}, Hann\'{a}k, A., and Baumann, J. ``Prompt Revision as a Source of Cultural Bias in Text-to-Image Systems.'' \emph{\robotoMedium{EMNLP}} (2026).
+\item[{[C8]}] \me{Pagan, N.}, Philippou, A., and De Pasquale, G. ``Learning to Control Misinformation: a Closed-loop Approach for Misinformation Mitigation over Social Networks.'' \emph{\robotoMedium{L4DC}} (2026). \href{https://doi.org/10.48550/arXiv.2511.12393}{doi: 10.48550/arXiv.2511.12393}.
+\item[{[C7]}] \me{Pagan, N.}, T\"{o}rnberg, P., Bail, C.A.,  Hann\'{a}k, A., and Barrie, C.
+``Can LLMs Imitate Social Media Dialogue? Techniques for calibration and BERT-based Turing-Test'' \emph{\robotoMedium{COLM}} (2025).
+\item[{[C6]}] \me{Pagan, N.$^\star$}, Baumann, J.$^\star$, Elokda, E., De Pasquale, G., Bolognani, S., and Hann\'{a}k, A. ``A Classification of Feedback Loops and Their Relation to Biases in Automated Decision-Making Systems.'' \emph{\robotoMedium{EAAMO}} (2023). \href{https://doi.org/10.1145/3617694.3623227}{doi: 10.1145/3617694.3623227}.
+\item[{[C5]}] Ionescu, S., Hann\'{a}k, A., and \me{Pagan, N.} ``Group fairness for content creators: the role of human and algorithmic biases under popularity-based recommendations.'' \emph{\robotoMedium{RecSys}} (2023). \href{https://doi.org/10.1145/3604915.3608841}{doi: 10.1145/3604915.3608841}.
+\item[{[C4]}] Lanzetti, N., D\"{o}rfler, F., and \me{Pagan, N.} ``The Impact of Recommendation Systems on Opinion Dynamics: Microscopic Versus Macroscopic Effects.'' \emph{\robotoMedium{IEEE CDC}} (2023). \href{https://doi.org/10.1109/CDC49753.2023.10383957}{doi: 10.1109/CDC49753.2023.10383957}.
+\item[{[C3]}] Maddux, A.M., \me{Pagan, N.}, Belgioioso, G., and D\"{o}rfler, F. ``Data-driven behaviour estimation in parametric games.'' \emph{\robotoMedium{IFAC-PapersOnLine}} 56(2) (2023). \href{https://doi.org/10.1016/j.ifacol.2023.10.220}{doi: 10.1016/j.ifacol.2023.10.220}.
+\item[{[C2]}] Bouleimen, A., \me{Pagan, N.}, Cresci, S., Urman, A., and Giordano, S. ``Dynamics of toxic behavior in the Covid-19 vaccination debate.'' \emph{\robotoMedium{Complex Networks}} (2023). \href{https://doi.org/10.1007/978-3-031-53503-1_26}{doi: 10.1007/978-3-031-53503-1\_26}.
+\item[{[C1]}] Ionescu, S., \me{Pagan, N.}, and Hann\'{a}k, A. ``Individual fairness for social media influencers.'' \emph{\robotoMedium{Complex Networks}} (2022). \href{https://doi.org/10.1007/978-3-031-21127-0_14}{doi: 10.1007/978-3-031-21127-0\_14}.
+\end{enumerate}
+}
+
+\vspace{5pt}
+\noindent\robotoRegular{Conference Articles --- Under Review}
+\robotoLight{
+\begin{enumerate}[leftmargin=*, itemsep=0pt, topsep=2pt]
+\item[{[C14]}] \me{Pagan, N.} ``Risk-Seeking Strategic Robustness in Games: A Substitutes-Complements Rule, and Where It Breaks.'' \emph{Under review, \robotoMedium{ICLR}} (2027).
+\item[{[C13]}] Joos, T.C., Bouleimen, A., Hann\'{a}k, A., and \me{Pagan, N.} ``Perceived Trust and Transparency in AI-Altered vs.\ Human-Written LinkedIn Posts.'' \emph{Under review, \robotoMedium{ICWSM}} (2027).
+\end{enumerate}
+}
+
+% \vspace{5pt}
+% \noindent\robotoRegular{Selected Extended Abstracts}
+% \robotoLight{
+% \begin{enumerate}[leftmargin=*, itemsep=0pt, topsep=2pt]
+% \item[{[EA7]}] Ebling, M.A., Ionescu, S., and \me{Pagan, N.} ``When LLMs Evaluate LLMs in Hiring: A Multi-Model Auditing Framework for Generative Preference Bias in AI-Assisted Recruitment.'' \emph{\robotoMedium{ECAF}} (2026).
+% \item[{[EA6]}] Jaoua, S., \me{Pagan, N.}, Hann\'{a}k, A., and Ionescu, S. ``The Order of Recommendation Matters: Structured Exploration for Improving the Fairness of Content Creators.'' \emph{\robotoMedium{ECAF}} (2026).
+% \item[{[EA5]}] \me{Pagan, N.}, Barrie, C., Bail, C.A., and T\"{o}rnberg, P. ``Auditing Recommendation Bias in LLM-Based Social Media Curation.'' \emph{\robotoMedium{ECAF}} (2026).
+% \item[{[EA4]}] Urman, A., Lichtenegger, E., Bouleimen, A., Forsberg, R., Hertweck, C., Hu, D., Ionescu, S., Jaglan, K., Jaoua, S., \me{Pagan, N.}, Hann\'{a}k, A., and Baumann, J. ``The World We See Through AI's Eyes: U.S. Cultural Dominance in Text-to-Image Generation.'' \emph{\robotoMedium{EWAF}} (2025).
+% \item[{[EA3]}] Ionescu, S., Hann\'{a}k, A., and \me{Pagan, N.} ``The impact of users' homophily and recommendation biases on social network inequalities.'' \emph{\robotoMedium{NetSci}} (2023).
+% \item[{[EA2]}] \me{Pagan, N.$^\star$}, Baumann, J.$^\star$, Elokda, E., De Pasquale, G., Bolognani, S., and Hann\'{a}k, A. ``Closing the Loop: Feedback Loops and Biases in Automated Decision-Making.'' \emph{\robotoMedium{EWAF}} (2023).
+% \item[{[EA1]}] \me{Pagan, N.} and D\"{o}rfler, F. ``Learning strategic behavior in social and economic networks.'' \emph{\robotoMedium{Complex Networks}} (2018).
+% \end{enumerate}
+% }
+
+\normalsize
+
+\cvsection{GRANTS}
+\begin{itemize}[leftmargin=*, nosep]
+\item SNSF Fellowship, ``A Cross-National Study to Promote Democratic Dialogue on Social Media Using Generative Artificial Intelligence,'' \robotoMedium{CHF 230,552} (2025--2027). \emph{Role: \robotoMedium{Lead Researcher}.}
+\item SNSF Fellowship (NCCR Automation, Phase II), ``Definitions of Fairness in Control,'' \robotoMedium{CHF 216,000} (2025--2027). \emph{Role: \robotoMedium{Funding acquisition}.}
+% FIX: the fellowship funded Mar 2022 -- Mar 2024 (was 2022--2023)
+\item SNSF Fellowship (NCCR Automation, Phase I), ``Ethical Auditing of Control Systems Methods,'' \robotoMedium{CHF 216,000}  (2022--2024). \emph{Role: \robotoMedium{Funding acquisition, Lead Researcher}.}
+\end{itemize}
+
+\end{document}

@@ -119,7 +119,7 @@ window.SITE = {
       id: "l4dc-2026",
       year: 2026,
       venue: "L4DC",
-      title: "Misinformation Mitigation over Social Networks: a Control Approach",
+      title: "Learning to Control Misinformation: a Closed-loop Approach for Misinformation Mitigation over Social Networks",
       authors: "N. Pagan, A. Philippou, G. De Pasquale",
       area: "ma", methods: ["ds", "opt", "llm"], apps: ["mis"],
       figure: "assets/figures/l4dc.webp",
@@ -436,7 +436,11 @@ window.SITE = {
       ]
     },
     {
-      when: "Jan 2022 – Mar 2024", role: "NCCR Automation Fellow", org: "Swiss National Science Foundation",
+      when: "Feb 2021 – Mar 2024", role: "Post-doctoral Researcher & Lecturer", org: "Social Computing Group, University of Zurich",
+      titles: [
+        "NCCR Automation Fellow, own SNSF project · Mar 2022 – Mar 2024",
+        "Lecturer, Social Computing · Feb – Apr 2021"
+      ],
       points: [
         "First systematic taxonomy of feedback loops in ML systems and their relation to algorithmic bias (EAAMO 2023).",
         "Led a CHF 216,000 SNSF project on algorithmic fairness in recommender systems and resource allocation.",
@@ -461,7 +465,7 @@ window.SITE = {
   grants: [
     { amount: "CHF 230,552", title: "A Cross-National Study to Promote Democratic Dialogue on Social Media Using Generative AI", meta: "SNSF · 2025–2027 · Lead Researcher" },
     { amount: "CHF 216,000", title: "Definitions of Fairness in Control", meta: "SNSF, NCCR Automation Phase II · 2025–2027 · Funding acquisition" },
-    { amount: "CHF 216,000", title: "Ethical Auditing of Control Systems Methods", meta: "SNSF, NCCR Automation Phase I · 2022–2023 · Funding acquisition, Lead Researcher" }
+    { amount: "CHF 216,000", title: "Ethical Auditing of Control Systems Methods", meta: "SNSF, NCCR Automation Phase I · 2022–2024 · Funding acquisition, Lead Researcher" }
   ],
 
   skills: {

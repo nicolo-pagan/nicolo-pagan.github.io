@@ -106,6 +106,7 @@ kbd { font: 500 12px var(--sans); padding: 1px 6px; border-radius: 4px; border: 
 
 /* ---------- Research areas ---------- */
 .about { border-bottom: 0; }
+#experience { border-top: 1px solid var(--border); }
 .pillars-section { padding-top: 0; }
 .pillars-section h2 { margin-bottom: 22px; }
 .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--border); }
